@@ -1,8 +1,21 @@
+import { useEffect, useState } from "react";
 import TMLogo from "./tanish-makadia-logo";
 
 export default function NavBar() {
+  // Add a state variable to keep track of whether the user has scrolled or not
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="flex min-w-full h-50px bg-grey-light/5 border-b border-grey-border items-center">
+    <nav className="flex min-w-full h-14 bg-grey-light/5 border-b border-grey-border items-center">
       <div className="flex min-w-36 justify-center items-center group">
         <TMLogo
           color="#8B949E"
