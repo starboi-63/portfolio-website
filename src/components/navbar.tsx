@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import TMLogo from "./tanish-makadia-logo";
+import NavLink from "./navlink";
+import Link from "next/link";
 
 export default function NavBar() {
   // Add a state variable to keep track of whether the user has scrolled or not
@@ -24,7 +26,10 @@ export default function NavBar() {
           : "bg-transparent border-transparent"
       }`}
     >
-      <div className="flex min-w-36 justify-center items-center group">
+      <Link
+        href="/"
+        className="flex min-w-36 justify-center items-center group"
+      >
         <TMLogo
           color="#8B949E"
           hoverColor="#C9D1D9"
@@ -35,8 +40,14 @@ export default function NavBar() {
         <text className="font-bold text-grey-medium group-hover:text-grey-light transition-colors duration-100 ease-out pr-3">
           TM
         </text>
-      </div>
+      </Link>
       <div className="w-px h-25px border-r border-grey-border" />
+      <div className="flex justify-evenly space-x-10 pl-10">
+        <NavLink href="/experience">Experience</NavLink>
+        <NavLink href="/projects">Projects</NavLink>
+        <NavLink href="/blog">Blog</NavLink>
+        <NavLink href="/astrophotography">Astrophotography</NavLink>
+      </div>
     </nav>
   );
 }
