@@ -30,14 +30,14 @@ export default function NavBar() {
     >
       <Link
         href="/"
-        className="flex min-w-36 justify-center items-center group"
+        className="flex flex-grow max-w-36 justify-center items-center group"
       >
         <TMLogo
           color="#8B949E"
           hoverColor="#C9D1D9"
           width={45}
           height={45}
-          className="transition-colors duration-100 ease-out group-hover:fill-[var(--svg-hover-color)]"
+          className="ml-1.5 transition-colors duration-100 ease-out group-hover:fill-[var(--svg-hover-color)]"
         />
         <text className="font-bold text-grey-medium group-hover:text-grey-light transition-colors duration-100 ease-out pr-3">
           TM
@@ -45,7 +45,7 @@ export default function NavBar() {
       </Link>
       <div className="w-px h-25px border-r border-grey-border" />
       <div className="flex justify-between flex-grow">
-        <div className="flex justify-between space-x-10 pl-10">
+        <div className="hidden lg:flex justify-between space-x-10 pl-10 flex-shrink-0">
           <NavLink href="/experience">Experience</NavLink>
           <NavLink href="/projects">Projects</NavLink>
           <NavLink href="/blog">Blog</NavLink>
