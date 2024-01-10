@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import TMLogo from "./tanish-makadia-logo";
 
@@ -7,7 +9,7 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -15,7 +17,13 @@ export default function NavBar() {
   }, []);
 
   return (
-    <nav className="flex min-w-full h-14 bg-grey-light/5 border-b border-grey-border items-center">
+    <nav
+      className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-100 ${
+        isScrolled
+          ? "bg-grey-light/5  border-grey-border"
+          : "bg-transparent border-transparent"
+      }`}
+    >
       <div className="flex min-w-36 justify-center items-center group">
         <TMLogo
           color="#8B949E"
