@@ -1,3 +1,5 @@
+import SVGHover from "./svg-hover";
+
 interface TMLogoProps {
   color: string;
   hoverColor: string;
@@ -7,19 +9,12 @@ interface TMLogoProps {
 }
 
 export default function TMLogo(props: TMLogoProps) {
-  const style = {
-    "--svg-color": props.color,
-    "--svg-hover-color": props.hoverColor,
-    width: props.width,
-    height: props.height,
-  };
-
   return (
-    <svg
-      style={style}
-      viewBox="0 0 {width} {height}"
-      fill="var(--svg-color)"
-      xmlns="http://www.w3.org/2000/svg"
+    <SVGHover
+      color={props.color}
+      hoverColor={props.hoverColor}
+      width={props.width}
+      height={props.height}
       className={props.className}
     >
       <g id="Tanish Makadia Logo" clip-path="url(#clip0_422_141)">
@@ -49,6 +44,6 @@ export default function TMLogo(props: TMLogoProps) {
           <rect width="45" height="45" fill="white" />
         </clipPath>
       </defs>
-    </svg>
+    </SVGHover>
   );
 }
