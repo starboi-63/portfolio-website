@@ -3,6 +3,7 @@ interface TMLogoProps {
   hoverColor: string;
   width: number;
   height: number;
+  className: string;
 }
 
 export default function TMLogo(props: TMLogoProps) {
@@ -19,7 +20,7 @@ export default function TMLogo(props: TMLogoProps) {
       viewBox="0 0 {width} {height}"
       fill="var(--svg-color)"
       xmlns="http://www.w3.org/2000/svg"
-      className="transition-colors duration-100 ease-out hover:fill-[var(--svg-hover-color)]"
+      className={props.className}
     >
       <g id="Tanish Makadia Logo" clip-path="url(#clip0_422_141)">
         <path
