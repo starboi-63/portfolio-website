@@ -29,8 +29,6 @@ const config: Config = {
       },
       height: {
         "25px": "25px",
-        "50px": "50px",
-        "150px": "150px",
       },
     },
   },

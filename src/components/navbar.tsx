@@ -90,7 +90,7 @@ export default function NavBar() {
           TM
         </text>
       </Link>
-      <div className="w-px h-25px border-r border-grey-border" />
+      <div className="w-px h-6 border-r border-grey-border" />
       <div className="flex justify-between flex-grow">
         <div className="hidden lg:flex justify-between pl-5 flex-shrink-0">
           {navItems.map((item) => (
@@ -153,9 +153,10 @@ export default function NavBar() {
       </div>
 
       <motion.div
-        className="absolute inset-y-3.5 rounded-full bg-grey-light/20 -z-10"
+        className="absolute top-3.5 h-25px rounded-full bg-grey-light/15 -z-10"
         layoutId="nav-item-highlight"
         style={highlightStyle}
+        transition={{ duration: 0.1 }}
       />
     </nav>
   );
