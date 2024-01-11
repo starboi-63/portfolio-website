@@ -5,16 +5,16 @@ import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode;
-}) {
+}
+
+export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
         <NavBar />
-        {children}
+        {props.children}
       </body>
     </html>
   );
