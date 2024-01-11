@@ -27,6 +27,10 @@ const navItems = [
     name: "Astrophotography",
     href: "/astrophotography",
   },
+  {
+    name: "What I Use",
+    href: "/uses",
+  },
 ];
 
 export default function NavBar() {
