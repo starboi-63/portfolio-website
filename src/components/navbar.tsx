@@ -66,6 +66,10 @@ export default function NavBar() {
     setActiveLink(pathname);
   }, [pathname]);
 
+  useEffect(() => {
+    updateHighlight(activeLink);
+  }, [activeLink]);
+
   return (
     <nav
       className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-100 ${
