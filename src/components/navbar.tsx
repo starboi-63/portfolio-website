@@ -1,14 +1,39 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import Image from "next/image";
 import TMLogo from "./tanish-makadia-logo";
-import NavLink from "./navlink";
 import Link from "next/link";
 import LinkedIn from "./linkedin";
 import GitHub from "./github";
 import Instagram from "./instagram";
 
+const navItems = [
+  {
+    name: "Experience",
+    href: "/experience",
+  },
+  {
+    name: "Projects",
+    href: "/projects",
+  },
+  {
+    name: "Blog",
+    href: "/blog",
+  },
+  {
+    name: "Astrophotography",
+    href: "/astrophotography",
+  },
+];
+
 export default function NavBar() {
+  const pathname = usePathname();
+
+  const [activeLink, setActiveLink] = useState<string>(pathname);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -19,6 +44,10 @@ export default function NavBar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    setActiveLink(pathname);
+  }, [pathname]);
 
   return (
     <nav
@@ -46,10 +75,32 @@ export default function NavBar() {
       <div className="w-px h-25px border-r border-grey-border" />
       <div className="flex justify-between flex-grow">
         <div className="hidden lg:flex justify-between space-x-10 pl-10 flex-shrink-0">
-          <NavLink href="/experience">Experience</NavLink>
-          <NavLink href="/projects">Projects</NavLink>
-          <NavLink href="/blog">Blog</NavLink>
-          <NavLink href="/astrophotography">Astrophotography</NavLink>
+          {navItems.map((item) => (
+            <Link
+              href={item.href}
+              className="flex space-x-1.5 group"
+              onMouseOver={() => setHoveredLink(item.href)}
+              onMouseLeave={() => setHoveredLink(null)}
+            >
+              <span
+                className={`text-sm group-hover:text-grey-light transition-all ease-out duration-100 ${
+                  item.href === hoveredLink ||
+                  (!hoveredLink && item.href === activeLink)
+                    ? "text-grey-light"
+                    : "text-grey-medium"
+                }`}
+              >
+                {item.name}
+              </span>
+              <Image
+                className="group-hover:translate-y-0.5 transition-all ease-out duration-100"
+                src="/down-arrow.svg"
+                width={8}
+                height={8}
+                alt="down arrow"
+              />
+            </Link>
+          ))}
         </div>
         <div className="flex justify-between space-x-10 px-10">
           <GitHub
