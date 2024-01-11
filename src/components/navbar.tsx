@@ -74,7 +74,7 @@ export default function NavBar() {
     <nav
       className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-100 ${
         isScrolled
-          ? "bg-grey-light/5  border-grey-border"
+          ? "bg-grey-medium/5  border-grey-border"
           : "bg-transparent border-transparent"
       }`}
       ref={navRef}
@@ -97,9 +97,9 @@ export default function NavBar() {
       <div className="w-px h-6 border-r border-grey-border" />
       <div className="flex justify-between flex-grow">
         <div className="hidden lg:flex justify-between pl-5 flex-shrink-0">
-          {navItems.map((item) => (
+          {navItems.map((item, index) => (
             <Link
-              key={item.name}
+              key={index}
               href={item.href}
               className="flex space-x-1.5 group px-3"
               onMouseOver={() => {
