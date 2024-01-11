@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
@@ -31,10 +31,27 @@ const navItems = [
 
 export default function NavBar() {
   const pathname = usePathname();
+  const navRef = useRef<HTMLDivElement>(null);
 
   const [activeLink, setActiveLink] = useState<string>(pathname);
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
+  const [highlightStyle, setHighlightStyle] = useState({});
   const [isScrolled, setIsScrolled] = useState(false);
+
+  const updateHighlight = (itemHref: string) => {
+    const nav = navRef.current;
+
+    if (nav) {
+      const activeItem = nav.querySelector(`[href="${itemHref}"]`);
+      const rect = activeItem?.getBoundingClientRect();
+      const navRect = nav.getBoundingClientRect();
+
+      setHighlightStyle({
+        width: (rect?.width ?? 0) + "px",
+        left: (rect?.left ?? 0) - navRect.left + "px",
+      });
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,6 +73,7 @@ export default function NavBar() {
           ? "bg-grey-light/5  border-grey-border"
           : "bg-transparent border-transparent"
       }`}
+      ref={navRef}
     >
       <Link
         href="/"
@@ -74,13 +92,20 @@ export default function NavBar() {
       </Link>
       <div className="w-px h-25px border-r border-grey-border" />
       <div className="flex justify-between flex-grow">
-        <div className="hidden lg:flex justify-between space-x-10 pl-10 flex-shrink-0">
+        <div className="hidden lg:flex justify-between pl-5 flex-shrink-0">
           {navItems.map((item) => (
             <Link
+              key={item.name}
               href={item.href}
-              className="flex space-x-1.5 group"
-              onMouseOver={() => setHoveredLink(item.href)}
-              onMouseLeave={() => setHoveredLink(null)}
+              className="flex space-x-1.5 group px-3"
+              onMouseOver={() => {
+                setHoveredLink(item.href);
+                updateHighlight(item.href);
+              }}
+              onMouseLeave={() => {
+                setHoveredLink(null);
+                updateHighlight(activeLink);
+              }}
             >
               <span
                 className={`text-sm group-hover:text-grey-light transition-all ease-out duration-100 ${
@@ -126,6 +151,12 @@ export default function NavBar() {
           />
         </div>
       </div>
+
+      <motion.div
+        className="absolute inset-y-3.5 rounded-full bg-grey-light/20 -z-10"
+        layoutId="nav-item-highlight"
+        style={highlightStyle}
+      />
     </nav>
   );
 }
