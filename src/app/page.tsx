@@ -1,4 +1,4 @@
-import ExperienceBlock from "@/components/experience-block";
+import ExperienceCard from "@/components/experience-card";
 import SVGHover from "@/components/svg-hover";
 
 const experienceData = [
@@ -17,6 +17,7 @@ const experienceData = [
       "Node.js",
       "Firebase",
       "Tailwind CSS",
+      "Framer Motion",
       "Figma",
     ],
     logoPath: "/fsab-logo.svg",
@@ -60,7 +61,7 @@ export default function Home() {
       </div>
       <div className="flex flex-col mt-32 space-y-6">
         {experienceData.map((data, index) => (
-          <ExperienceBlock key={index} {...data} />
+          <ExperienceCard key={index} {...data} />
         ))}
       </div>
     </main>
