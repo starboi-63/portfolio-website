@@ -95,7 +95,7 @@ export default function ExperienceCard(props: ExperienceCardProps) {
               <li
                 key={index}
                 data-skill={skill}
-                className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3 transition-all ease-out duration-100 hover:bg-grey-medium/40"
+                className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3 transition-all ease-out duration-100 hover:bg-grey-medium/40 cursor-pointer"
               >
                 {skill}
               </li>
