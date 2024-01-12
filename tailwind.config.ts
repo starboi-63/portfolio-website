@@ -28,6 +28,9 @@ const config: Config = {
       width: {
         "367px": "367px",
       },
+      opacity: {
+        "8": "0.08",
+      },
     },
   },
   plugins: [],

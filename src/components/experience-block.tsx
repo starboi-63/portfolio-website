@@ -17,7 +17,7 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
       href={props.url}
       rel="noopener noreferrer"
       target="_blank"
-      className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/10 hover:border-grey-light/15 transition-all ease-out duration-100"
+      className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100"
     >
       <div className="flex flex-col items-center space-y-6 flex-shrink-0">
         <span className="text-xs font-medium text-grey-dark">
