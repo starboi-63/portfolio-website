@@ -64,7 +64,7 @@ function cardFront(
   props: ExperienceCardProps,
   ref: React.RefObject<HTMLDivElement>
 ) {
-  // Allow nested links by handling the click event on the block
+  // Allow nested links by searching is a skill was clicked
   const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // Loop through the event path to find if a skill was clicked
     for (const element of event.nativeEvent.composedPath()) {
@@ -75,6 +75,7 @@ function cardFront(
         if (url) {
           window.open(url, "_blank", "noopener,noreferrer");
           event.preventDefault(); // Prevent default link behavior
+          event.stopPropagation(); // Prevent the event from bubbling up
           return; // Stop the loop once the skill is found and handled
         }
       }
