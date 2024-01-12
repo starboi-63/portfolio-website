@@ -21,7 +21,7 @@ export default function FlippingCard(props: FlippingCardProps) {
   const springTransition = {
     type: "spring",
     stiffness: 1000,
-    damping: 40,
+    damping: 50,
   };
 
   return (
