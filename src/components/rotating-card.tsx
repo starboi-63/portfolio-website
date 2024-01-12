@@ -2,6 +2,8 @@ import { motion, useSpring } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 
 interface RotatingCardProps {
+  onClick?: (event: React.MouseEvent<HTMLDivElement>) => void;
+  className?: string;
   children: React.ReactNode;
 }
 
@@ -27,7 +29,7 @@ export default function RotatingCard(props: RotatingCardProps) {
       const distanceFromCenterY = mouseY - elementCenterY;
 
       // Normalize these distances to get the rotation offsets
-      const _xOffset = (distanceFromCenterY / elementHeight) * 20; // choose a rotation factor
+      const _xOffset = (distanceFromCenterY / elementHeight) * 20; // choose a rotation factor (currently 20)
       const _yOffset = (-distanceFromCenterX / elementWidth) * 20;
 
       setXOffset(_xOffset);
@@ -56,8 +58,10 @@ export default function RotatingCard(props: RotatingCardProps) {
 
   return (
     <div
+      onClick={props.onClick}
+      className={props.className}
       style={{
-        perspective: "2500px", // Adjust as needed
+        perspective: "2500px", // Changes how "close" the card appears to be
       }}
     >
       <motion.div
