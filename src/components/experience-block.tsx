@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,12 +13,47 @@ interface ExperienceBlockProps {
   url: string;
 }
 
+interface SkillToUrlMap {
+  [skill: string]: string;
+}
+
+const skillToURLMap: SkillToUrlMap = {
+  "Next.js": "https://nextjs.org/",
+  React: "https://reactjs.org/",
+  TypeScript: "https://www.typescriptlang.org/",
+  "Node.js": "https://nodejs.org/en/",
+  Firebase: "https://firebase.google.com/",
+  "Tailwind CSS": "https://tailwindcss.com/",
+  Figma: "https://www.figma.com/",
+  C: "https://en.wikipedia.org/wiki/C_(programming_language)",
+  I2C: "https://en.wikipedia.org/wiki/I%C2%B2C",
+  FreeRTOS: "https://www.freertos.org/",
+};
+
 export default function ExperienceBlock(props: ExperienceBlockProps) {
+  // Allow nested links by handling the click event on the block
+  const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Loop through the event path to find if a skill was clicked
+    for (const element of event.nativeEvent.composedPath()) {
+      if (element instanceof HTMLElement && element.dataset.skill) {
+        const skill = element.dataset.skill;
+        const url = skillToURLMap[skill];
+
+        if (url) {
+          window.open(url, "_blank", "noopener,noreferrer");
+          event.preventDefault(); // Prevent the main link from being followed
+          return; // Stop the loop once the skill is found and handled
+        }
+      }
+    }
+    // If no skill was clicked, follow the main link
+    window.open(props.url, "_blank", "noopener,noreferrer");
+    event.preventDefault(); // Prevent default link behavior
+  };
+
   return (
-    <Link
-      href={props.url}
-      rel="noopener noreferrer"
-      target="_blank"
+    <div
+      onClick={handleBlockClick}
       className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
     >
       <div className="flex flex-col items-center space-y-6 flex-shrink-0">
@@ -57,17 +94,18 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
             </li>
           ))}
         </ul>
-        <ul className="flex flex-wrap justify-start items-center mt-4 gap-2">
+        <ul className="flex flex-wrap justify-start items-center mt-6 gap-2">
           {props.skills.map((skill, index) => (
             <li
               key={index}
-              className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3"
+              data-skill={skill}
+              className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3 transition-all ease-out duration-100 hover:bg-grey-medium/40"
             >
               {skill}
             </li>
           ))}
         </ul>
       </div>
-    </Link>
+    </div>
   );
 }
