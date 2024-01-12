@@ -42,8 +42,8 @@ export default function RotatingCard(props: RotatingCardProps) {
 
   const spring = {
     type: "spring",
-    stiffness: 300,
-    damping: 40,
+    stiffness: 1000,
+    damping: 60,
   };
 
   const dx = useSpring(0, spring);
