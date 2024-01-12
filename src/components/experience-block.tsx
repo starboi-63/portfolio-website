@@ -17,7 +17,7 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
       href={props.url}
       rel="noopener noreferrer"
       target="_blank"
-      className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100"
+      className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
     >
       <div className="flex flex-col items-center space-y-6 flex-shrink-0">
         <span className="text-xs font-medium text-grey-dark">
@@ -32,10 +32,19 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
         />
       </div>
       <div className="flex flex-col -translate-y-1">
-        <h2 className="font-medium text-grey-light">
-          {props.titles[0]} <span className="font-semibold">·</span>{" "}
-          {props.organization}
-        </h2>
+        <div className="flex space-x-4">
+          <h2 className="font-medium text-grey-light">
+            {props.titles[0]} <span className="font-semibold">·</span>{" "}
+            {props.organization}
+          </h2>
+          <Image
+            src="/side-arrow.svg"
+            width={8}
+            height={8}
+            alt="side arrow"
+            className="transition-all ease-out duration-100 group-hover:translate-x-3"
+          />
+        </div>
         {props.titles.slice(1).map((title, index) => (
           <h2 key={index} className="font-medium text-grey-medium/50">
             {title}
