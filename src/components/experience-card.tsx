@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
-import { motion, useSpring } from "framer-motion";
-import { useState, useRef, useEffect } from "react";
+import { motion } from "framer-motion";
+import { useState } from "react";
+import RotatingCard from "./rotating-card";
 
 interface ExperienceCardProps {
   organization: string;
@@ -57,135 +57,72 @@ export default function ExperienceCard(props: ExperienceCardProps) {
     event.preventDefault(); // Prevent default link behavior
   };
 
-  const [xOffset, setXOffset] = useState(0);
-  const [yOffset, setYOffset] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (event: React.MouseEvent) => {
-    const element = ref.current;
-
-    if (element) {
-      const elementRect = element.getBoundingClientRect();
-      const elementWidth = elementRect.width;
-      const elementHeight = elementRect.height;
-      const elementCenterX = elementWidth / 2;
-      const elementCenterY = elementHeight / 2;
-      const mouseX = event.clientX - elementRect.left;
-      const mouseY = event.clientY - elementRect.top;
-
-      // Calculate the distance from the center in both X and Y directions
-      const distanceFromCenterX = mouseX - elementCenterX;
-      const distanceFromCenterY = mouseY - elementCenterY;
-
-      // Normalize these distances to get the rotation offsets
-      const _xOffset = (distanceFromCenterY / elementHeight) * 20; // choose a rotation factor
-      const _yOffset = (-distanceFromCenterX / elementWidth) * 20;
-
-      setXOffset(_xOffset);
-      setYOffset(_yOffset);
-    }
-  };
-
-  const handleMouseExit = () => {
-    setXOffset(0);
-    setYOffset(0);
-  };
-
-  const spring = {
-    type: "spring",
-    stiffness: 300,
-    damping: 40,
-  };
-
-  const dx = useSpring(0, spring);
-  const dy = useSpring(0, spring);
-
-  useEffect(() => {
-    dx.set(xOffset);
-    dy.set(yOffset);
-  }, [xOffset, yOffset]);
-
   return (
-    <div
-      style={{
-        perspective: "2500px", // Adjust as needed
-      }}
-    >
+    <RotatingCard>
       <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseExit}
-        style={{
+        onClick={handleBlockClick}
+        animate={{
+          rotateY: isFlipped ? 180 : 0,
           transformStyle: "preserve-3d",
-          rotateX: dx,
-          rotateY: dy,
         }}
+        transition={{
+          type: "spring",
+          stiffness: 1000,
+          damping: 40,
+        }}
+        className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
       >
-        <motion.div
-          onClick={handleBlockClick}
-          animate={{
-            rotateY: isFlipped ? 180 : 0,
-            transformStyle: "preserve-3d",
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 1000,
-            damping: 40,
-          }}
-          className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
-        >
-          <div className="flex flex-col items-center space-y-6 flex-shrink-0">
-            <span className="text-xs font-medium text-grey-dark">
-              {props.dates}
-            </span>
+        <div className="flex flex-col items-center space-y-6 flex-shrink-0">
+          <span className="text-xs font-medium text-grey-dark">
+            {props.dates}
+          </span>
+          <Image
+            className="object-center"
+            src={props.logoPath}
+            width={42}
+            height={42}
+            alt={props.logoPath}
+          />
+        </div>
+        <div className="flex flex-col -translate-y-1">
+          <div className="flex space-x-4">
+            <h2 className="font-medium text-grey-light">
+              {props.titles[0]} <span className="font-semibold">·</span>{" "}
+              {props.organization}
+            </h2>
             <Image
-              className="object-center"
-              src={props.logoPath}
-              width={42}
-              height={42}
-              alt={props.logoPath}
+              src="/side-arrow.svg"
+              width={8}
+              height={8}
+              alt="side arrow"
+              className="transition-all ease-out duration-100 group-hover:translate-x-3"
             />
           </div>
-          <div className="flex flex-col -translate-y-1">
-            <div className="flex space-x-4">
-              <h2 className="font-medium text-grey-light">
-                {props.titles[0]} <span className="font-semibold">·</span>{" "}
-                {props.organization}
-              </h2>
-              <Image
-                src="/side-arrow.svg"
-                width={8}
-                height={8}
-                alt="side arrow"
-                className="transition-all ease-out duration-100 group-hover:translate-x-3"
-              />
-            </div>
-            {props.titles.slice(1).map((title, index) => (
-              <h2 key={index} className="font-medium text-grey-medium/50">
-                {title}
-              </h2>
+          {props.titles.slice(1).map((title, index) => (
+            <h2 key={index} className="font-medium text-grey-medium/50">
+              {title}
+            </h2>
+          ))}
+          <ul className="list-disc space-y-4 mt-3">
+            {props.accomplishments.map((accomplishment, index) => (
+              <li key={index} className="text-sm text-grey-medium">
+                {accomplishment}
+              </li>
             ))}
-            <ul className="list-disc space-y-4 mt-3">
-              {props.accomplishments.map((accomplishment, index) => (
-                <li key={index} className="text-sm text-grey-medium">
-                  {accomplishment}
-                </li>
-              ))}
-            </ul>
-            <ul className="flex flex-wrap justify-start items-center mt-6 gap-2">
-              {props.skills.map((skill, index) => (
-                <li
-                  key={index}
-                  data-skill={skill}
-                  className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3 transition-all ease-out duration-100 hover:bg-grey-medium/40"
-                >
-                  {skill}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </motion.div>
+          </ul>
+          <ul className="flex flex-wrap justify-start items-center mt-6 gap-2">
+            {props.skills.map((skill, index) => (
+              <li
+                key={index}
+                data-skill={skill}
+                className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3 transition-all ease-out duration-100 hover:bg-grey-medium/40"
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
       </motion.div>
-    </div>
+    </RotatingCard>
   );
 }
