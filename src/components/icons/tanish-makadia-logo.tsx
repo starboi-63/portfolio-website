@@ -1,4 +1,4 @@
-import SVGHover from "./svg-hover";
+import SVGHover from "../svg-hover";
 
 interface TMLogoProps {
   color: string;

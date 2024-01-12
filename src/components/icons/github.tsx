@@ -1,5 +1,5 @@
 import Link from "next/link";
-import SVGHover from "./svg-hover";
+import SVGHover from "../svg-hover";
 
 interface GitHubProps {
   color: string;

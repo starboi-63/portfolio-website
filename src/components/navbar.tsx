@@ -4,11 +4,11 @@ import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import TMLogo from "./tanish-makadia-logo";
+import TMLogo from "./icons/tanish-makadia-logo";
 import Link from "next/link";
-import LinkedIn from "./linkedin";
-import GitHub from "./github";
-import Instagram from "./instagram";
+import LinkedIn from "./icons/linkedin";
+import GitHub from "./icons/github";
+import Instagram from "./icons/instagram";
 
 const navItems = [
   {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 interface ExperienceBlockProps {
   organization: string;
@@ -7,11 +8,17 @@ interface ExperienceBlockProps {
   accomplishments: string[];
   skills: string[];
   logoPath: string;
+  url: string;
 }
 
 export default function ExperienceBlock(props: ExperienceBlockProps) {
   return (
-    <div className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg">
+    <Link
+      href={props.url}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/10 hover:border-grey-light/15 transition-all ease-out duration-100"
+    >
       <div className="flex flex-col items-center space-y-6 flex-shrink-0">
         <span className="text-xs font-medium text-grey-dark">
           {props.dates}
@@ -19,23 +26,24 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
         <Image
           className="object-center"
           src={props.logoPath}
-          width={36}
-          height={36}
+          width={42}
+          height={42}
           alt={props.logoPath}
         />
       </div>
       <div className="flex flex-col -translate-y-1">
         <h2 className="font-medium text-grey-light">
-          {props.titles[0]} · {props.organization}
+          {props.titles[0]} <span className="font-semibold">·</span>{" "}
+          {props.organization}
         </h2>
         {props.titles.slice(1).map((title, index) => (
-          <h2 key={index} className="font-medium text-grey-dark">
+          <h2 key={index} className="font-medium text-grey-medium/50">
             {title}
           </h2>
         ))}
         <ul className="list-disc space-y-4 mt-3">
           {props.accomplishments.map((accomplishment, index) => (
-            <li key={index} className="text-sm font-normal text-grey-medium">
+            <li key={index} className="text-sm text-grey-medium">
               {accomplishment}
             </li>
           ))}
@@ -44,13 +52,13 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
           {props.skills.map((skill, index) => (
             <li
               key={index}
-              className="text-xs text-nowrap text-grey-light font-normal bg-grey-medium/20 rounded-full py-1 px-3"
+              className="text-xs text-grey-light bg-grey-medium/20 rounded-full py-1 px-3"
             >
               {skill}
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </Link>
   );
 }
