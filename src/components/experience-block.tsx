@@ -2,6 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { useState } from "react";
 
 interface ExperienceBlockProps {
   organization: string;
@@ -31,6 +33,9 @@ const skillToURLMap: SkillToUrlMap = {
 };
 
 export default function ExperienceBlock(props: ExperienceBlockProps) {
+  const [isFlipped, setIsFlipped] = useState(false);
+  const flipCard = () => setIsFlipped(!isFlipped);
+
   // Allow nested links by handling the click event on the block
   const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // Loop through the event path to find if a skill was clicked
@@ -47,13 +52,22 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
       }
     }
     // If no skill was clicked, follow the main link
-    window.open(props.url, "_blank", "noopener,noreferrer");
+    flipCard();
     event.preventDefault(); // Prevent default link behavior
   };
 
   return (
-    <div
+    <motion.div
       onClick={handleBlockClick}
+      animate={{
+        rotateY: isFlipped ? 180 : 0,
+        transformStyle: "preserve-3d",
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 1000,
+        damping: 40,
+      }}
       className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
     >
       <div className="flex flex-col items-center space-y-6 flex-shrink-0">
@@ -106,6 +120,6 @@ export default function ExperienceBlock(props: ExperienceBlockProps) {
           ))}
         </ul>
       </div>
-    </div>
+    </motion.div>
   );
 }
