@@ -1,4 +1,7 @@
+"use client";
+
 import ExperienceCard from "@/components/experience-card";
+import { motion } from "framer-motion";
 
 const experienceData = [
   {
@@ -37,6 +40,26 @@ const experienceData = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1, // 100ms gap between each card
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 0.5, // Adjust the duration as needed
+    },
+  },
+};
+
 export default function Home() {
   return (
     <main className="flex justify-center space-x-20 min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-dark">
@@ -58,11 +81,18 @@ export default function Home() {
           grinding coursework, you'll find me [dynamic content].
         </p>
       </div>
-      <div className="flex flex-col mt-32 space-y-6">
+      <motion.div
+        className="flex flex-col mt-32 space-y-6"
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+      >
         {experienceData.map((data, index) => (
-          <ExperienceCard key={index} {...data} />
+          <motion.div key={index} variants={itemVariants}>
+            <ExperienceCard {...data} />
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
     </main>
   );
 }
