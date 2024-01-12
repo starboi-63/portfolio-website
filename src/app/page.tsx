@@ -20,6 +20,7 @@ const experienceData = [
       "Figma",
     ],
     logoPath: "/fsab-logo.svg",
+    url: "https://fullstackatbrown.github.io/website/",
   },
   {
     organization: "Brown Space Engineering",
@@ -32,6 +33,7 @@ const experienceData = [
     ],
     skills: ["C", "I2C", "FreeRTOS"],
     logoPath: "/bse-logo.svg",
+    url: "https://brownspace.org",
   },
 ];
 
