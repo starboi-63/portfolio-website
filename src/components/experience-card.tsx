@@ -1,7 +1,9 @@
 "use client";
 
 import Image from "next/image";
+import { useState, useRef, useEffect } from "react";
 import RotatingCard from "./rotating-card";
+import FlippingCard from "./flipping-card";
 
 interface ExperienceCardProps {
   organization: string;
@@ -32,6 +34,36 @@ const skillToURLMap: SkillToUrlMap = {
 };
 
 export default function ExperienceCard(props: ExperienceCardProps) {
+  const frontContentRef = useRef<HTMLDivElement>(null);
+
+  const [frontContentSize, setFrontContentSize] = useState({
+    width: 0,
+    height: 0,
+  });
+
+  useEffect(() => {
+    const frontContent = frontContentRef.current;
+
+    if (frontContent) {
+      const rect = frontContent.getBoundingClientRect();
+      setFrontContentSize({ width: rect.width, height: rect.height });
+    }
+  }, []);
+
+  return (
+    <FlippingCard
+      width={"676px"}
+      height={frontContentSize.height + "px"}
+      frontContent={cardFront(props, frontContentRef)}
+      backContent={cardBack(props, frontContentSize)}
+    />
+  );
+}
+
+function cardFront(
+  props: ExperienceCardProps,
+  ref: React.RefObject<HTMLDivElement>
+) {
   // Allow nested links by handling the click event on the block
   const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // Loop through the event path to find if a skill was clicked
@@ -51,7 +83,10 @@ export default function ExperienceCard(props: ExperienceCardProps) {
 
   return (
     <RotatingCard onClick={handleBlockClick}>
-      <div className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group">
+      <div
+        ref={ref}
+        className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
+      >
         <div className="flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-grey-dark">
             {props.dates}
@@ -102,6 +137,22 @@ export default function ExperienceCard(props: ExperienceCardProps) {
             ))}
           </ul>
         </div>
+      </div>
+    </RotatingCard>
+  );
+}
+
+function cardBack(
+  props: ExperienceCardProps,
+  size: { width: number; height: number }
+) {
+  return (
+    <RotatingCard>
+      <div
+        style={{ height: size.height + "px" }}
+        className="flex p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
+      >
+        <text>{size.height}</text>
       </div>
     </RotatingCard>
   );

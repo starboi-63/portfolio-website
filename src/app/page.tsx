@@ -1,5 +1,4 @@
 import ExperienceCard from "@/components/experience-card";
-import SVGHover from "@/components/svg-hover";
 
 const experienceData = [
   {
