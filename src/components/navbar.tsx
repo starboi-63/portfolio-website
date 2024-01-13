@@ -78,7 +78,7 @@ export default function NavBar() {
     <nav
       className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-100 ${
         isScrolled
-          ? "bg-grey-medium/5  border-grey-border shadow-lg"
+          ? "bg-grey-medium/5  border-grey-border shadow-lg backdrop-blur-xl"
           : "bg-transparent border-transparent"
       }`}
       ref={navRef}
