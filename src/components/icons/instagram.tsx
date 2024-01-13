@@ -1,25 +1,20 @@
 import Link from "next/link";
-import SVGHover from "../svg-hover";
 
 interface InstagramProps {
-  color: string;
-  hoverColor: string;
-  width: number;
-  height: number;
-  className: string;
+  className?: string;
 }
 
 export default function Instagram(props: InstagramProps) {
   return (
     <Link href="https://www.instagram.com/tanishmakadia.astro/">
-      <SVGHover
-        color={props.color}
-        hoverColor={props.hoverColor}
-        width={props.width}
-        height={props.height}
+      <svg
         className={props.className}
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="Instagram" clip-path="url(#clip0_422_133)">
+        <g id="Instagram" clip-path="url(#clip0_552_133)">
           <g id="Group">
             <path
               id="Vector"
@@ -32,11 +27,11 @@ export default function Instagram(props: InstagramProps) {
           </g>
         </g>
         <defs>
-          <clipPath id="clip0_422_133">
+          <clipPath id="clip0_552_133">
             <rect width="22" height="22" fill="white" />
           </clipPath>
         </defs>
-      </SVGHover>
+      </svg>
     </Link>
   );
 }

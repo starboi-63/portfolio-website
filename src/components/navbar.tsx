@@ -87,13 +87,7 @@ export default function NavBar() {
         href="/"
         className="flex flex-grow max-w-36 justify-center items-center group"
       >
-        <TMLogo
-          color="#8B949E"
-          hoverColor="#C9D1D9"
-          width={45}
-          height={45}
-          className="ml-1.5 transition-colors duration-100 ease-out group-hover:fill-[var(--svg-hover-color)]"
-        />
+        <TMLogo className="ml-1.5 transition-colors duration-100 ease-out fill-grey-medium group-hover:fill-grey-light" />
         <text className="font-bold text-grey-medium group-hover:text-grey-light transition-colors duration-100 ease-out pr-3">
           TM
         </text>
@@ -136,27 +130,9 @@ export default function NavBar() {
           ))}
         </div>
         <div className="flex justify-between space-x-10 px-10">
-          <GitHub
-            color="#8B949E"
-            hoverColor="#C9D1D9"
-            width={22}
-            height={22}
-            className="transition-colors duration-100 ease-out hover:fill-[var(--svg-hover-color)]"
-          />
-          <Instagram
-            color="#8B949E"
-            hoverColor="#C9D1D9"
-            width={22}
-            height={22}
-            className="transition-colors duration-100 ease-out hover:fill-[var(--svg-hover-color)]"
-          />
-          <LinkedIn
-            color="#8B949E"
-            hoverColor="#C9D1D9"
-            width={22}
-            height={22}
-            className="transition-colors duration-100 ease-out hover:fill-[var(--svg-hover-color)]"
-          />
+          <GitHub className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
+          <Instagram className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
+          <LinkedIn className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
         </div>
       </div>
 

@@ -1,9 +1,16 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import RotatingCard from "./rotating-card";
 import FlippingCard from "./flipping-card";
+import LinkIcon from "@/components/icons/link-icon";
+
+interface Link {
+  text: string;
+  url: string;
+}
 
 interface ExperienceCardProps {
   organization: string;
@@ -12,7 +19,7 @@ interface ExperienceCardProps {
   accomplishments: string[];
   skills: string[];
   logoPath: string;
-  url: string;
+  links: Link[];
 }
 
 interface SkillToUrlMap {
@@ -151,9 +158,23 @@ function cardBack(
     <RotatingCard>
       <div
         style={{ height: size.height + "px" }}
-        className="flex p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
+        className="flex flex-col justify-center items-center p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
       >
-        <text>{size.height}</text>
+        <h2 className="font-medium text-grey-light">{props.organization}</h2>
+        <div className="flex space-x-3 mt-4">
+          {props.links.map((link, index) => (
+            <Link
+              key={index}
+              href={link.url}
+              className="flex items-center bg-grey-medium/20 hover:bg-transparent border border-transparent hover:border-blue-link rounded-full px-3 py-1 group/links"
+            >
+              <LinkIcon className="transition-all ease-out duration-100 stroke-grey-light group-hover/links:stroke-blue-link mr-1" />
+              <span className="text-sm transition-all ease-out duration-100 text-grey-light group-hover/links:text-blue-link">
+                {link.text}
+              </span>
+            </Link>
+          ))}
+        </div>
       </div>
     </RotatingCard>
   );

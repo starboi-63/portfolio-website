@@ -23,7 +23,24 @@ const experienceData = [
       "Figma",
     ],
     logoPath: "/fsab-logo.svg",
-    url: "https://fullstackatbrown.github.io/website/",
+    links: [
+      {
+        text: "FSAB Website",
+        url: "https://fullstackatbrown.github.io/website/",
+      },
+      {
+        text: "GitHub",
+        url: "https://github.com/fullstackatbrown",
+      },
+      {
+        text: "LinkedIn",
+        url: "https://www.linkedin.com/company/fullstackatbrown/",
+      },
+      {
+        text: "Facebook",
+        url: "https://www.facebook.com/FullStackBrown",
+      },
+    ],
   },
   {
     organization: "Brown Space Engineering",
@@ -36,7 +53,12 @@ const experienceData = [
     ],
     skills: ["C", "I2C", "FreeRTOS"],
     logoPath: "/bse-logo.svg",
-    url: "https://brownspace.org",
+    links: [
+      { text: "BSE Website", url: "https://brownspace.org" },
+      { text: "GitHub", url: "https://github.com/BrownSpaceEngineering" },
+      { text: "LinkedIn", url: "https://www.linkedin.com/company/brownspace" },
+      { text: "Facebook", url: "https://www.facebook.com/browncubesat/" },
+    ],
   },
 ];
 

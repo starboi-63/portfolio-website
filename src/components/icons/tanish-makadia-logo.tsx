@@ -1,23 +1,17 @@
-import SVGHover from "../svg-hover";
-
 interface TMLogoProps {
-  color: string;
-  hoverColor: string;
-  width: number;
-  height: number;
-  className: string;
+  className?: string;
 }
 
 export default function TMLogo(props: TMLogoProps) {
   return (
-    <SVGHover
-      color={props.color}
-      hoverColor={props.hoverColor}
-      width={props.width}
-      height={props.height}
+    <svg
       className={props.className}
+      width="45"
+      height="45"
+      viewBox="0 0 45 45"
+      xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="Tanish Makadia Logo" clip-path="url(#clip0_422_141)">
+      <g id="Portfolio Website Logo 1" clip-path="url(#clip0_422_141)">
         <path
           id="Center"
           d="M30.7813 22.5C26.2078 22.5 22.5 26.2078 22.5 30.7813C22.5 26.2078 18.7922 22.5 14.2188 22.5C18.7922 22.5 22.5 18.7922 22.5 14.2188C22.5 18.7922 26.2078 22.5 30.7813 22.5Z"
@@ -44,6 +38,6 @@ export default function TMLogo(props: TMLogoProps) {
           <rect width="45" height="45" fill="white" />
         </clipPath>
       </defs>
-    </SVGHover>
+    </svg>
   );
 }

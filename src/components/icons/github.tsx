@@ -1,25 +1,20 @@
 import Link from "next/link";
-import SVGHover from "../svg-hover";
 
 interface GitHubProps {
-  color: string;
-  hoverColor: string;
-  width: number;
-  height: number;
-  className: string;
+  className?: string;
 }
 
 export default function GitHub(props: GitHubProps) {
   return (
     <Link href="https://github.com/starboi-63">
-      <SVGHover
-        color={props.color}
-        hoverColor={props.hoverColor}
-        width={props.width}
-        height={props.height}
+      <svg
         className={props.className}
+        width="22"
+        height="22"
+        viewBox="0 0 22 22"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="GitHub" clip-path="url(#clip0_422_137)">
+        <g id="GitHub" clip-path="url(#clip0_552_137)">
           <path
             id="Vector"
             fill-rule="evenodd"
@@ -28,11 +23,11 @@ export default function GitHub(props: GitHubProps) {
           />
         </g>
         <defs>
-          <clipPath id="clip0_422_137">
+          <clipPath id="clip0_552_137">
             <rect width="22" height="22" fill="white" />
           </clipPath>
         </defs>
-      </SVGHover>
+      </svg>
     </Link>
   );
 }
