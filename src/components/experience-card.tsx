@@ -38,6 +38,8 @@ const skillToURLMap: SkillToUrlMap = {
   I2C: "https://en.wikipedia.org/wiki/I%C2%B2C",
   FreeRTOS: "https://www.freertos.org/",
   "Framer Motion": "https://www.framer.com/motion/",
+  LaTeX: "https://www.latex-project.org/",
+  Overleaf: "https://www.overleaf.com/",
 };
 
 export default function ExperienceCard(props: ExperienceCardProps) {

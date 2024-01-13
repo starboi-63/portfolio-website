@@ -60,6 +60,27 @@ const experienceData = [
       { text: "Facebook", url: "https://www.facebook.com/browncubesat/" },
     ],
   },
+  {
+    organization: "Linear Algebra with Theory",
+    titles: ["Teaching Assistant"],
+    dates: "SEP — DEC 2023",
+    accomplishments: [
+      "Collaborated with Professor Madeline Brandt to teach students in MATH 0540 (Linear Algebra with Theory).",
+      "Held regular TA office-hours and facilitated weekly recitations to help students with linear algebra concepts, mathematical proof-writing, and LaTeX typesetting.",
+    ],
+    skills: ["LaTeX", "Overleaf"],
+    logoPath: "/brown-university-logo.svg",
+    links: [
+      {
+        text: "Brown Mathematics Department",
+        url: "https://www.brown.edu/academics/math/",
+      },
+      {
+        text: "Professor Brandt's Website",
+        url: "https://sites.google.com/view/madelinebrandt",
+      },
+    ],
+  },
 ];
 
 const containerVariants = {
