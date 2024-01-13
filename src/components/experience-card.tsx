@@ -72,7 +72,7 @@ function cardFront(
   ref: React.RefObject<HTMLDivElement>
 ) {
   // Allow nested links by searching is a skill was clicked
-  const handleBlockClick = (event: React.MouseEvent<HTMLDivElement>) => {
+  const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
     // Loop through the event path to find if a skill was clicked
     for (const element of event.nativeEvent.composedPath()) {
       if (element instanceof HTMLElement && element.dataset.skill) {
@@ -90,7 +90,7 @@ function cardFront(
   };
 
   return (
-    <RotatingCard onClick={handleBlockClick}>
+    <RotatingCard onClick={handleCardClick}>
       <div
         ref={ref}
         className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
@@ -154,27 +154,41 @@ function cardBack(
   props: ExperienceCardProps,
   size: { width: number; height: number }
 ) {
+  const handleCardClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    // Loop through the event path to find if a link was clicked
+    for (const element of event.nativeEvent.composedPath()) {
+      if (element instanceof HTMLElement && element.dataset.url) {
+        const url = element.dataset.url;
+
+        window.open(url, "_blank", "noopener,noreferrer");
+        event.preventDefault(); // Prevent default link behavior
+        event.stopPropagation(); // Prevent the event from bubbling up
+        return; // Stop the loop once the link is found and handled
+      }
+    }
+  };
+
   return (
-    <RotatingCard>
+    <RotatingCard onClick={handleCardClick}>
       <div
         style={{ height: size.height + "px" }}
         className="flex flex-col justify-center items-center p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 group"
       >
         <h2 className="font-medium text-grey-light">{props.organization}</h2>
-        <div className="flex space-x-3 mt-4">
+        <ul className="flex space-x-3 mt-4">
           {props.links.map((link, index) => (
-            <Link
+            <li
               key={index}
-              href={link.url}
-              className="flex items-center bg-grey-medium/20 hover:bg-transparent border border-transparent hover:border-blue-link rounded-full px-3 py-1 group/links"
+              data-url={link.url}
+              className="flex items-center bg-grey-medium/20 hover:bg-transparent border border-transparent hover:border-blue-link rounded-full px-3 py-1 cursor-pointer group/links"
             >
               <LinkIcon className="transition-all ease-out duration-100 stroke-grey-light group-hover/links:stroke-blue-link mr-1" />
               <span className="text-sm transition-all ease-out duration-100 text-grey-light group-hover/links:text-blue-link">
                 {link.text}
               </span>
-            </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </RotatingCard>
   );

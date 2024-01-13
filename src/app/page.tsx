@@ -34,7 +34,7 @@ const experienceData = [
       },
       {
         text: "LinkedIn",
-        url: "https://www.linkedin.com/company/fullstackatbrown/",
+        url: "https://www.linkedin.com/company/full-stack-at-brown/",
       },
       {
         text: "Facebook",
@@ -84,7 +84,7 @@ const itemVariants = {
 
 export default function Home() {
   return (
-    <main className="flex justify-center space-x-20 min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-dark">
+    <main className="flex justify-center space-x-20 min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-light">
       <div className="sticky top-32 flex flex-col mt-32 items-start">
         <h1 className="text-5xl font-bold text-grey-light">Tanish Makadia</h1>
         <div className="flex space-x-4 items-center pt-2">
