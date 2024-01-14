@@ -40,6 +40,9 @@ const skillToURLMap: SkillToUrlMap = {
   "Framer Motion": "https://www.framer.com/motion/",
   LaTeX: "https://www.latex-project.org/",
   Overleaf: "https://www.overleaf.com/",
+  "Visual Studio Code": "https://code.visualstudio.com/",
+  "LaTeX Workshop":
+    "https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop",
 };
 
 export default function ExperienceCard(props: ExperienceCardProps) {
@@ -95,7 +98,7 @@ function cardFront(
     <RotatingCard onClick={handleCardClick}>
       <div
         ref={ref}
-        className="flex max-w-2xl p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 backdrop-blur-xl group"
+        className="flex p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 backdrop-blur-xl group"
       >
         <div className="flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-grey-dark">
