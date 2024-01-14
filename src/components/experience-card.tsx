@@ -106,7 +106,7 @@ function cardFront(
     <RotatingCard onClick={handleCardClick}>
       <div
         ref={ref}
-        className="flex p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/25 transition-all ease-out duration-100 backdrop-blur-2xl group"
+        className="flex p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/30 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
         <div className="w-[129px] flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-slate-500">
