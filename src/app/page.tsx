@@ -68,7 +68,7 @@ const experienceData = [
       "Collaborated with Professor Madeline Brandt to teach students in MATH 0540 (Linear Algebra with Theory).",
       "Held regular TA office-hours and facilitated weekly recitations to help students with linear algebra concepts, mathematical proof-writing, and LaTeX typesetting.",
     ],
-    skills: ["LaTeX", "Overleaf"],
+    skills: ["LaTeX", "Overleaf", "Visual Studio Code", "LaTeX Workshop"],
     logoPath: "/brown-university-logo.svg",
     links: [
       {
@@ -105,37 +105,40 @@ const itemVariants = {
 
 export default function Home() {
   return (
-    <main className="flex justify-center space-x-20 min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-light">
-      <div className="sticky top-32 flex flex-col mt-32 items-start">
-        <h1 className="text-5xl font-bold text-grey-light">Tanish Makadia</h1>
-        <div className="flex space-x-4 items-center pt-2">
-          <h2 className="text-xl font-medium text-grey-medium">CS + Math</h2>
-          <div className="w-px h-6 border-r border-grey-border" />
-          <h2 className="text-xl font-medium text-grey-medium">
-            Brown University
-          </h2>
+    <main>
+      <div className="fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-light" />
+      <div className="flex justify-center space-x-20">
+        <div className="relative flex flex-col mt-32 items-start">
+          <h1 className="text-5xl font-bold text-grey-light">Tanish Makadia</h1>
+          <div className="flex space-x-4 items-center pt-2">
+            <h2 className="text-xl font-medium text-grey-medium">CS + Math</h2>
+            <div className="w-px h-6 border-r border-grey-border" />
+            <h2 className="text-xl font-medium text-grey-medium">
+              Brown University
+            </h2>
+          </div>
+          <div className="h-px w-367px border-b border-grey-border pt-4 mb-4" />
+          <p className="w-96 text-base font-normal text-grey-dark">
+            Hey! I'm an undergraduate student who's fascinated by the
+            intersection of <span className="text-grey-light">programming</span>
+            , <span className="text-grey-light">proof-writing</span>, and{" "}
+            <span className="text-grey-light">astronomy</span>. When I'm not
+            grinding coursework, you'll find me [dynamic content].
+          </p>
         </div>
-        <div className="h-px w-367px border-b border-grey-border pt-4 mb-4" />
-        <p className="w-96 text-base font-normal text-grey-dark">
-          Hey! I'm an undergraduate student who's fascinated by the intersection
-          of <span className="text-grey-light">programming</span>,{" "}
-          <span className="text-grey-light">proof-writing</span>, and{" "}
-          <span className="text-grey-light">astronomy</span>. When I'm not
-          grinding coursework, you'll find me [dynamic content].
-        </p>
+        <motion.div
+          className="flex flex-col mt-24 space-y-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {experienceData.map((data, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <ExperienceCard {...data} />
+            </motion.div>
+          ))}
+        </motion.div>
       </div>
-      <motion.div
-        className="flex flex-col mt-32 space-y-6"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {experienceData.map((data, index) => (
-          <motion.div key={index} variants={itemVariants}>
-            <ExperienceCard {...data} />
-          </motion.div>
-        ))}
-      </motion.div>
     </main>
   );
 }
