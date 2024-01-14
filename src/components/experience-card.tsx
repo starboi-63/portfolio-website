@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import LinkData from "next/link";
 import { useState, useRef, useEffect } from "react";
 import RotatingCard from "./rotating-card";
 import FlippingCard from "./flipping-card";
