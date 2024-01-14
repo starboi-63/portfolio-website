@@ -1,15 +1,22 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import LinkData from "next/link";
 import { useState, useRef, useEffect } from "react";
 import RotatingCard from "./rotating-card";
 import FlippingCard from "./flipping-card";
 import LinkIcon from "@/components/icons/link-icon";
 
-interface Link {
+interface LinkData {
   text: string;
   url: string;
+}
+
+interface LogoData {
+  src: string;
+  alt: string;
+  width: number;
+  height: number;
 }
 
 interface ExperienceCardProps {
@@ -18,8 +25,8 @@ interface ExperienceCardProps {
   dates: string;
   accomplishments: string[];
   skills: string[];
-  logoPath: string;
-  links: Link[];
+  logo: LogoData;
+  links: LinkData[];
 }
 
 interface SkillToUrlMap {
@@ -43,6 +50,8 @@ const skillToURLMap: SkillToUrlMap = {
   "Visual Studio Code": "https://code.visualstudio.com/",
   "LaTeX Workshop":
     "https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop",
+  "C#": "https://docs.microsoft.com/en-us/dotnet/csharp/",
+  Unity: "https://unity.com/",
 };
 
 export default function ExperienceCard(props: ExperienceCardProps) {
@@ -100,16 +109,16 @@ function cardFront(
         ref={ref}
         className="flex p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
-        <div className="flex flex-col items-center space-y-6 flex-shrink-0">
+        <div className="w-[129px] flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-grey-dark">
             {props.dates}
           </span>
           <Image
             className="object-center"
-            src={props.logoPath}
-            width={42}
-            height={42}
-            alt={props.logoPath}
+            src={props.logo.src}
+            width={props.logo.width}
+            height={props.logo.height}
+            alt={props.logo.alt}
           />
         </div>
         <div className="flex flex-col -translate-y-1">
@@ -180,7 +189,7 @@ function cardBack(
         className="flex flex-col justify-center items-center p-6 space-x-6 border bg-grey-medium/5 border-grey-border rounded-xl shadow-lg hover:bg-grey-medium/8 hover:border-grey-light/25 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
         <h2 className="font-medium text-grey-light">{props.organization}</h2>
-        <ul className="flex space-x-3 mt-4">
+        <ul className="flex flex-wrap justify-center gap-3 mt-4">
           {props.links.map((link, index) => (
             <li
               key={index}

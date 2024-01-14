@@ -29,6 +29,7 @@ const config: Config = {
         "367px": "367px",
       },
       opacity: {
+        "2.5": "0.025",
         "8": "0.08",
       },
     },

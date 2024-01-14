@@ -22,7 +22,12 @@ const experienceData = [
       "Framer Motion",
       "Figma",
     ],
-    logoPath: "/fsab-logo.svg",
+    logo: {
+      src: "/fsab-logo.svg",
+      alt: "Full-Stack at Brown Logo",
+      width: 42,
+      height: 42,
+    },
     links: [
       {
         text: "FSAB Website",
@@ -52,7 +57,12 @@ const experienceData = [
       "Designed a watchdog system to monitor the health of tasks within the satellite's OS and a sensor-locking system to enable concurrent data retrieval from multiple satellite sensors across I2C serial communication buses.",
     ],
     skills: ["C", "I2C", "FreeRTOS"],
-    logoPath: "/bse-logo.svg",
+    logo: {
+      src: "/bse-logo.svg",
+      alt: "Brown Space Engineering Logo",
+      width: 42,
+      height: 42,
+    },
     links: [
       { text: "BSE Website", url: "https://brownspace.org" },
       { text: "GitHub", url: "https://github.com/BrownSpaceEngineering" },
@@ -69,7 +79,12 @@ const experienceData = [
       "Held regular TA office-hours and facilitated weekly recitations to help students with linear algebra concepts, mathematical proof-writing, and LaTeX typesetting.",
     ],
     skills: ["LaTeX", "Overleaf", "Visual Studio Code", "LaTeX Workshop"],
-    logoPath: "/brown-university-logo.svg",
+    logo: {
+      src: "/brown-university-logo.svg",
+      alt: "Brown University Logo",
+      width: 42,
+      height: 42,
+    },
     links: [
       {
         text: "Brown Mathematics Department",
@@ -78,6 +93,32 @@ const experienceData = [
       {
         text: "Professor Brandt's Website",
         url: "https://sites.google.com/view/madelinebrandt",
+      },
+    ],
+  },
+  {
+    organization: "Brown-RISD Game Developers",
+    titles: ["Game Developer"],
+    dates: "JAN — MAY 2023",
+    accomplishments: [
+      "Coordinated with an inter-university team of programmers and artists to conceptualize, produce, and launch Rift-Rush, a 2D-platformer game inspired by Portal and Celeste.",
+      "Developed core logic including player movement and collision physics using C# and Unity Game Engine.",
+    ],
+    skills: ["C#", "Unity"],
+    logo: {
+      src: "/brgd-logo.svg",
+      alt: "Brown-RISD Game Developers Logo",
+      width: 66,
+      height: 42,
+    },
+    links: [
+      { text: "BRGD Website", url: "https://brownrisdgames.itch.io" },
+      { text: "Rift Rush", url: "https://brownrisdgames.itch.io/rift-rush" },
+      { text: "X", url: "https://twitter.com/BrownRISDGames" },
+      { text: "Instagram", url: "https://www.instagram.com/brownrisdgamedev/" },
+      {
+        text: "LinkedIn",
+        url: "https://www.linkedin.com/company/brown-risd-game-developers/",
       },
     ],
   },
@@ -107,8 +148,8 @@ export default function Home() {
   return (
     <main>
       <div className="fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-blue-bg-dark to-red-bg-light" />
-      <div className="flex justify-center space-x-20">
-        <div className="relative flex flex-col mt-32 items-start">
+      <div className="mt-24 flex justify-center space-x-20">
+        <div className="relative flex flex-col mt-4 items-start">
           <h1 className="text-5xl font-bold text-grey-light">Tanish Makadia</h1>
           <div className="flex space-x-4 items-center pt-2">
             <h2 className="text-xl font-medium text-grey-medium">CS + Math</h2>
@@ -127,7 +168,7 @@ export default function Home() {
           </p>
         </div>
         <motion.div
-          className="flex flex-col mt-24 space-y-6"
+          className="flex flex-col space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
