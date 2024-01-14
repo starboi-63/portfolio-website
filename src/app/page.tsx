@@ -148,8 +148,8 @@ export default function Home() {
   return (
     <main>
       <div className="fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-slate-950 to-slate-900" />
-      <div className="mt-24 flex justify-center space-x-20">
-        <div className="relative flex flex-col mt-4 items-start">
+      <div className="flex justify-center space-x-20">
+        <div className="sticky top-0 pt-28 h-screen flex flex-col items-start">
           <h1 className="text-5xl font-bold text-slate-200">Tanish Makadia</h1>
           <div className="flex space-x-4 items-center pt-2">
             <h2 className="text-xl font-medium text-slate-400">CS + Math</h2>
@@ -168,7 +168,7 @@ export default function Home() {
           </p>
         </div>
         <motion.div
-          className="flex flex-col space-y-6"
+          className="mt-24 flex flex-col space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
