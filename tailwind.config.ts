@@ -9,18 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        "blue-bg-dark": "#0D1117",
-        "blue-bg-light": "#161B22",
-        "red-bg-light": "#221616",
-        "grey-light": "#C9D1D9",
-        "grey-medium": "#8B949E",
-        "grey-dark": "#6E7681",
-        "grey-border": "#30363D",
-        "blue-accent": "#388BFD",
         "blue-link": "#58A6FF",
-        "blue-light": "#79C0FF",
-        "blue-lightest": "#A5D6FF",
-        "red-accent": "#D47616",
       },
       height: {
         "25px": "25px",
@@ -29,7 +18,6 @@ const config: Config = {
         "367px": "367px",
       },
       opacity: {
-        "2.5": "0.025",
         "8": "0.08",
       },
     },

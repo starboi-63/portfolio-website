@@ -78,7 +78,7 @@ export default function NavBar() {
     <nav
       className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-250 ${
         isScrolled
-          ? "bg-grey-medium/5  border-grey-border shadow-lg backdrop-blur-2xl"
+          ? "bg-slate-400/5  border-slate-700 shadow-lg backdrop-blur-2xl"
           : "bg-transparent border-transparent"
       }`}
       ref={navRef}
@@ -87,12 +87,12 @@ export default function NavBar() {
         href="/"
         className="flex flex-grow max-w-36 justify-center items-center group"
       >
-        <TMLogo className="ml-1.5 transition-colors duration-100 ease-out fill-grey-medium group-hover:fill-grey-light" />
-        <text className="font-bold text-grey-medium group-hover:text-grey-light transition-colors duration-100 ease-out pr-3">
+        <TMLogo className="ml-1.5 transition-colors duration-100 ease-out fill-slate-400 group-hover:fill-slate-200" />
+        <text className="font-bold text-slate-400 group-hover:text-slate-200 transition-colors duration-100 ease-out pr-3">
           TM
         </text>
       </Link>
-      <div className="w-px h-6 border-r border-grey-border" />
+      <div className="w-px h-6 border-r border-slate-700" />
       <div className="flex justify-between flex-grow">
         <div className="hidden lg:flex justify-between pl-5 flex-shrink-0">
           {navItems.map((item, index) => (
@@ -110,11 +110,11 @@ export default function NavBar() {
               }}
             >
               <span
-                className={`text-sm group-hover:text-grey-light transition-all ease-out duration-100 ${
+                className={`text-sm group-hover:text-slate-200 transition-all ease-out duration-100 ${
                   item.href === hoveredLink ||
                   (!hoveredLink && item.href === activeLink)
-                    ? "text-grey-light"
-                    : "text-grey-medium"
+                    ? "text-slate-200"
+                    : "text-slate-400"
                 }`}
               >
                 {item.name}
@@ -130,14 +130,14 @@ export default function NavBar() {
           ))}
         </div>
         <div className="flex justify-between space-x-10 px-10">
-          <GitHub className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
-          <Instagram className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
-          <LinkedIn className="fill-grey-medium hover:fill-grey-light transition-all ease-out duration-100" />
+          <GitHub className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
+          <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
+          <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
         </div>
       </div>
 
       <motion.div
-        className="absolute top-3.5 h-25px rounded-full bg-grey-light/15 -z-10"
+        className="absolute top-3.5 h-25px rounded-full bg-slate-200/15 -z-10"
         layoutId="nav-item-highlight"
         style={highlightStyle}
         transition={{ duration: 0.1 }}
