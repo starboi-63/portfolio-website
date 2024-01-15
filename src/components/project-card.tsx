@@ -47,7 +47,7 @@ export default function ProjectCard(props: ProjectCardProps) {
   return (
     <RotatingCard onClick={handleCardClick}>
       <div className="flex max-w-[676px] p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/30 transition-all ease-out duration-100 backdrop-blur-2xl group">
-        <div className="w-[133px] flex flex-col items-center space-y-6 flex-shrink-0">
+        <div className="w-[136px] flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-slate-500">
             {props.dates}
           </span>

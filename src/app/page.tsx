@@ -127,8 +127,55 @@ const experienceData = [
 
 const projectData = [
   {
+    title: "Astronomical Data Acquisition & Image Processing",
+    subtitle: "Computerized GOTO Equatorial Telescope Mount",
+    dates: "AUG 2020 — PRESENT",
+    description:
+      "A fully computerized telescope mount capable of imaging deep-sky celestial objects using long-exposure astrophotography. I’ve been using the mount to gather and process astronomical data when I’m home for holidays.",
+    skills: [
+      "AutoCAD",
+      "SolidWorks",
+      "ASCOM",
+      "NINA",
+      "PHD2",
+      "PixInsight",
+      "OnStep",
+      "Photoshop",
+    ],
+    thumbnail: {
+      src: "/placeholder.png",
+      alt: "Computerized EQ-Mount Thumbnail",
+      width: 125,
+      height: 42,
+    },
+    href: "/eq-mount",
+  },
+  {
+    title: "Portfolio Website",
+    dates: "DEC 2023 — JAN 2024",
+    description:
+      "The personal portfolio website you're currently visiting — designed and developed by myself using Next.js.",
+    skills: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Figma",
+      "Vercel",
+      "Illustrator",
+    ],
+    thumbnail: {
+      src: "/placeholder.png",
+      alt: "Portfolio Website Thumbnail",
+      width: 125,
+      height: 42,
+    },
+    href: "https://github.com/starboi-63/portfolio-website",
+  },
+  {
     title: "Growth Stock Screener",
-    dates: "MAY 2023 — PRESENT",
+    dates: "MAY 2023 — JAN 2024",
     description:
       "An automated stock screening system with 5 stages based on time-tested criteria for predicting growth stock super-performance.",
     skills: ["Python", "Selenium", "pandas", "aiohttp", "asyncio", "yfinance"],
@@ -138,7 +185,21 @@ const projectData = [
       width: 125,
       height: 42,
     },
-    href: "/growth-stock-screener",
+    href: "/stock-screener",
+  },
+  {
+    title: "Plasmodial Slime Simulation",
+    dates: "NOV — DEC 2023",
+    description:
+      "An aesthetic computer-graphics based simulation of plasmodial slime growth using Unity compute shaders.",
+    skills: ["C#", "HLSL", "Unity"],
+    thumbnail: {
+      src: "/placeholder.png",
+      alt: "Plasmodial Slime Simulation Thumbnail",
+      width: 125,
+      height: 42,
+    },
+    href: "https://github.com/starboi-63/plasmodial-slime",
   },
 ];
 
