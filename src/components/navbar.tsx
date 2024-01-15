@@ -37,10 +37,46 @@ export default function NavBar() {
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
-  const [activeLink, setActiveLink] = useState<string>(pathname);
-  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
-  const [highlightStyle, setHighlightStyle] = useState({});
+  // track active link to determine where highlight should return to on mouse leave
+  const [activeLink, setActiveLink] = useState<string>("/");
+
+  useEffect(() => {
+    if (pathname.includes("/blog")) {
+      setActiveLink("/blog");
+    }
+  }, [pathname]);
+
+  const getActiveSection = () => {
+    const threshold = 0;
+    const sections = document.querySelectorAll(".section-anchor");
+
+    for (let i = sections.length - 1; i >= 0; i--) {
+      const rect = sections[i].getBoundingClientRect();
+
+      if (rect.top <= threshold) {
+        return sections[i].id;
+      }
+    }
+  };
+
+  // track scroll position to change navbar style and update active link
   const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+
+      if (pathname === "/") {
+        setActiveLink("#" + getActiveSection());
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // highlight style changes state based on active link and hovered link
+  const [highlightStyle, setHighlightStyle] = useState({});
 
   const updateHighlight = (itemHref: string) => {
     const nav = navRef.current;
@@ -58,21 +94,11 @@ export default function NavBar() {
   };
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setActiveLink(pathname);
-  }, [pathname]);
-
-  useEffect(() => {
     updateHighlight(activeLink);
   }, [activeLink]);
+
+  // track hovered link to determine where highlight should move to on mouse enter
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
 
   return (
     <nav
@@ -138,7 +164,7 @@ export default function NavBar() {
         className="absolute top-3.5 h-25px rounded-full bg-slate-200/15 -z-10"
         layoutId="nav-item-highlight"
         style={highlightStyle}
-        transition={{ duration: 0.1 }}
+        transition={{ type: "easeOut", duration: 0.1 }}
       />
     </nav>
   );
