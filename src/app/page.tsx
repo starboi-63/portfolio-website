@@ -172,6 +172,7 @@ const projectData = [
       height: 42,
     },
     href: "https://github.com/starboi-63/portfolio-website",
+    external: true,
   },
   {
     title: "Growth Stock Screener",
@@ -200,6 +201,7 @@ const projectData = [
       height: 42,
     },
     href: "https://github.com/starboi-63/plasmodial-slime",
+    external: true,
   },
 ];
 

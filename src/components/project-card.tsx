@@ -18,6 +18,7 @@ interface ProjectCardProps {
   skills: string[];
   thumbnail: ThumbnailData;
   href: string;
+  external?: boolean;
 }
 
 export default function ProjectCard(props: ProjectCardProps) {
@@ -41,7 +42,12 @@ export default function ProjectCard(props: ProjectCardProps) {
     }
 
     event.preventDefault();
-    router.push(props.href);
+
+    if (props.external) {
+      window.open(props.href, "_blank", "noopener,noreferrer");
+    } else {
+      router.push(props.href);
+    }
   };
 
   return (
