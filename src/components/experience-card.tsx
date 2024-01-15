@@ -5,6 +5,7 @@ import { useState, useRef, useEffect } from "react";
 import RotatingCard from "./rotating-card";
 import FlippingCard from "./flipping-card";
 import LinkIcon from "@/components/icons/link-icon";
+import skillToURLMap from "@/lib/skill-to-url-map";
 
 interface LinkData {
   text: string;
@@ -27,31 +28,6 @@ interface ExperienceCardProps {
   logo: LogoData;
   links: LinkData[];
 }
-
-interface SkillToUrlMap {
-  [skill: string]: string;
-}
-
-const skillToURLMap: SkillToUrlMap = {
-  "Next.js": "https://nextjs.org/",
-  React: "https://reactjs.org/",
-  TypeScript: "https://www.typescriptlang.org/",
-  "Node.js": "https://nodejs.org/en/",
-  Firebase: "https://firebase.google.com/",
-  "Tailwind CSS": "https://tailwindcss.com/",
-  Figma: "https://www.figma.com/",
-  C: "https://en.wikipedia.org/wiki/C_(programming_language)",
-  I2C: "https://en.wikipedia.org/wiki/I%C2%B2C",
-  FreeRTOS: "https://www.freertos.org/",
-  "Framer Motion": "https://www.framer.com/motion/",
-  LaTeX: "https://www.latex-project.org/",
-  Overleaf: "https://www.overleaf.com/",
-  "Visual Studio Code": "https://code.visualstudio.com/",
-  "LaTeX Workshop":
-    "https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop",
-  "C#": "https://docs.microsoft.com/en-us/dotnet/csharp/",
-  Unity: "https://unity.com/",
-};
 
 export default function ExperienceCard(props: ExperienceCardProps) {
   const frontContentRef = useRef<HTMLDivElement>(null);
@@ -108,7 +84,7 @@ function cardFront(
         ref={ref}
         className="flex p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/30 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
-        <div className="w-[129px] flex flex-col items-center space-y-6 flex-shrink-0">
+        <div className="w-[133px] flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-slate-500">
             {props.dates}
           </span>

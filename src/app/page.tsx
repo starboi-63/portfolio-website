@@ -1,6 +1,7 @@
 "use client";
 
 import ExperienceCard from "@/components/experience-card";
+import ProjectCard from "@/components/project-card";
 import { motion } from "framer-motion";
 
 const experienceData = [
@@ -124,6 +125,23 @@ const experienceData = [
   },
 ];
 
+const projectData = [
+  {
+    title: "Growth Stock Screener",
+    dates: "MAY 2023 — PRESENT",
+    description:
+      "An automated stock screening system with 5 stages based on time-tested criteria for predicting growth stock super-performance.",
+    skills: ["Python", "Selenium", "pandas", "aiohttp", "asyncio", "yfinance"],
+    thumbnail: {
+      src: "/placeholder.png",
+      alt: "Growth Stock Screener Thumbnail",
+      width: 125,
+      height: 42,
+    },
+    url: "/growth-stock-screener",
+  },
+];
+
 const containerVariants = {
   hidden: { opacity: 1 },
   visible: {
@@ -153,12 +171,12 @@ export default function Home() {
           <h1 className="text-5xl font-bold text-slate-200">Tanish Makadia</h1>
           <div className="flex space-x-4 items-center pt-2">
             <h2 className="text-xl font-medium text-slate-400">CS + Math</h2>
-            <div className="w-px h-6 border-r border-slate-700" />
+            <div className="w-px h-6 bg-slate-700" />
             <h2 className="text-xl font-medium text-slate-400">
               Brown University
             </h2>
           </div>
-          <div className="h-px w-367px border-b border-slate-700 pt-4 mb-4" />
+          <div className="h-px w-367px bg-slate-700 my-4" />
           <p className="w-96 text-base font-normal text-slate-500">
             Hey! I'm an undergraduate student who's fascinated by the
             intersection of <span className="text-slate-200">programming</span>,{" "}
@@ -168,7 +186,7 @@ export default function Home() {
           </p>
         </div>
         <motion.div
-          className="mt-24 flex flex-col space-y-6"
+          className="mt-24 flex flex-col items-center space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -176,6 +194,19 @@ export default function Home() {
           {experienceData.map((data, index) => (
             <motion.div key={index} variants={itemVariants}>
               <ExperienceCard {...data} />
+            </motion.div>
+          ))}
+          <div />
+
+          <motion.div
+            className="relative h-px w-2/3 bg-slate-700"
+            variants={itemVariants}
+          />
+          <div />
+
+          {projectData.map((data, index) => (
+            <motion.div key={index} variants={itemVariants}>
+              <ProjectCard {...data} />
             </motion.div>
           ))}
         </motion.div>
