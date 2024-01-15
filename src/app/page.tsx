@@ -249,7 +249,8 @@ export default function Home() {
           </p>
         </div>
         <motion.div
-          className="mt-24 flex flex-col items-center space-y-6"
+          id="experience"
+          className="section-anchor pt-24 flex flex-col items-center space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -259,12 +260,17 @@ export default function Home() {
               <ExperienceCard {...data} />
             </motion.div>
           ))}
-          <div />
 
+          <div />
           <motion.div
             className="relative h-px w-2/3 bg-slate-700"
             variants={itemVariants}
-          />
+          >
+            <div
+              id="projects"
+              className="section-anchor absolute -translate-y-[55px]"
+            />
+          </motion.div>
           <div />
 
           {projectData.map((data, index) => (

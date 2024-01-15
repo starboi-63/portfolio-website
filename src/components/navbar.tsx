@@ -13,11 +13,11 @@ import Instagram from "./icons/instagram";
 const navItems = [
   {
     name: "Experience",
-    href: "/experience",
+    href: "#experience",
   },
   {
     name: "Projects",
-    href: "/projects",
+    href: "#projects",
   },
   {
     name: "Blog",
@@ -87,10 +87,8 @@ export default function NavBar() {
         href="/"
         className="flex flex-grow max-w-36 justify-center items-center group"
       >
-        <TMLogo className="ml-1.5 transition-colors duration-100 ease-out fill-slate-400 group-hover:fill-slate-200" />
-        <text className="font-bold text-slate-400 group-hover:text-slate-200 transition-colors duration-100 ease-out pr-3">
-          TM
-        </text>
+        <TMLogo className="ml-1.5 fill-slate-200" />
+        <text className="font-bold text-slate-200 pr-3">TM</text>
       </Link>
       <div className="w-px h-6 border-r border-slate-700" />
       <div className="flex justify-between flex-grow">
