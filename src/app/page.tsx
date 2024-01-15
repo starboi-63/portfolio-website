@@ -138,7 +138,7 @@ const projectData = [
       width: 125,
       height: 42,
     },
-    url: "/growth-stock-screener",
+    href: "/growth-stock-screener",
   },
 ];
 
