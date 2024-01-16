@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 import TMLogo from "./icons/tanish-makadia-logo";
 import Link from "next/link";
@@ -13,11 +12,11 @@ import Instagram from "./icons/instagram";
 const navItems = [
   {
     name: "Experience",
-    href: "#experience",
+    href: "/#experience",
   },
   {
     name: "Projects",
-    href: "#projects",
+    href: "/#projects",
   },
   {
     name: "Blog",
@@ -34,20 +33,13 @@ const navItems = [
 ];
 
 export default function NavBar() {
-  const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
 
   // track active link to determine where highlight should return to on mouse leave
-  const [activeLink, setActiveLink] = useState<string>("/");
-
-  useEffect(() => {
-    if (pathname.includes("/blog")) {
-      setActiveLink("/blog");
-    }
-  }, [pathname]);
+  const [activeLink, setActiveLink] = useState<string>("/#experience");
 
   const getActiveSection = () => {
-    const threshold = 0;
+    const threshold = window.innerHeight / 2 - 56; // 56 is the height of the navbar
     const sections = document.querySelectorAll(".section-anchor");
 
     for (let i = sections.length - 1; i >= 0; i--) {
@@ -64,21 +56,23 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      console.log("scrolling: " + window.scrollY);
       setIsScrolled(window.scrollY > 0);
 
-      if (pathname === "/") {
-        setActiveLink("#" + getActiveSection());
+      if (activeLink.includes("/#")) {
+        setActiveLink("/#" + getActiveSection());
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [activeLink]);
 
   // highlight style changes state based on active link and hovered link
   const [highlightStyle, setHighlightStyle] = useState({});
 
   const updateHighlight = (itemHref: string) => {
+    console.log("updating highlight: " + itemHref);
     const nav = navRef.current;
 
     if (nav) {
@@ -112,9 +106,12 @@ export default function NavBar() {
       <Link
         href="/"
         className="flex flex-grow max-w-36 justify-center items-center group"
+        onClick={() => {
+          setActiveLink("/#experience");
+        }}
       >
         <TMLogo className="ml-1.5 fill-slate-200" />
-        <text className="font-bold text-slate-200 pr-3">TM</text>
+        <span className="font-bold text-slate-200 pr-3">TM</span>
       </Link>
       <div className="w-px h-6 border-r border-slate-700" />
       <div className="flex justify-between flex-grow">
@@ -124,6 +121,9 @@ export default function NavBar() {
               key={index}
               href={item.href}
               className="flex space-x-1.5 group px-3"
+              onClick={() => {
+                setActiveLink(item.href);
+              }}
               onMouseOver={() => {
                 setHoveredLink(item.href);
                 updateHighlight(item.href);
@@ -134,7 +134,7 @@ export default function NavBar() {
               }}
             >
               <span
-                className={`text-sm group-hover:text-slate-200 transition-all ease-out duration-100 ${
+                className={`text-sm transition-all ease-out duration-100 ${
                   item.href === hoveredLink ||
                   (!hoveredLink && item.href === activeLink)
                     ? "text-slate-200"
@@ -158,14 +158,14 @@ export default function NavBar() {
           <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
           <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
         </div>
-      </div>
 
-      <motion.div
-        className="absolute top-3.5 h-25px rounded-full bg-slate-200/15 -z-10"
-        layoutId="nav-item-highlight"
-        style={highlightStyle}
-        transition={{ type: "easeOut", duration: 0.1 }}
-      />
+        <motion.div
+          className="absolute top-3.5 h-25px rounded-full bg-slate-200/15 -z-10"
+          layoutId="nav-item-highlight"
+          style={highlightStyle}
+          transition={{ type: "easeOut", duration: 0.1 }}
+        />
+      </div>
     </nav>
   );
 }

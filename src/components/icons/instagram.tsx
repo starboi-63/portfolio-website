@@ -14,7 +14,7 @@ export default function Instagram(props: InstagramProps) {
         viewBox="0 0 22 22"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g id="Instagram" clip-path="url(#clip0_552_133)">
+        <g id="Instagram" clipPath="url(#clip0_552_133)">
           <g id="Group">
             <path
               id="Vector"

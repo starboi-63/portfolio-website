@@ -11,7 +11,7 @@ export default function TMLogo(props: TMLogoProps) {
       viewBox="0 0 45 45"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g id="Portfolio Website Logo 1" clip-path="url(#clip0_422_141)">
+      <g id="Portfolio Website Logo 1" clipPath="url(#clip0_422_141)">
         <path
           id="Center"
           d="M30.7813 22.5C26.2078 22.5 22.5 26.2078 22.5 30.7813C22.5 26.2078 18.7922 22.5 14.2188 22.5C18.7922 22.5 22.5 18.7922 22.5 14.2188C22.5 18.7922 26.2078 22.5 30.7813 22.5Z"
