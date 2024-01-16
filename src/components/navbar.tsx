@@ -51,6 +51,10 @@ export default function NavBar() {
     }
   };
 
+  const handleLinkClick = (href: string) => {
+    setActiveLink(href);
+  };
+
   // track scroll position to change navbar style and update active link
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -121,9 +125,7 @@ export default function NavBar() {
               key={index}
               href={item.href}
               className="flex space-x-1.5 group px-3"
-              onClick={() => {
-                setActiveLink(item.href);
-              }}
+              onClick={() => handleLinkClick(item.href)}
               onMouseOver={() => {
                 setHoveredLink(item.href);
                 updateHighlight(item.href);
