@@ -27,6 +27,18 @@ const skillToURLMap: SkillToUrlMap = {
   aiohttp: "https://docs.aiohttp.org/en/stable/",
   asyncio: "https://docs.python.org/3/library/asyncio.html",
   yfinance: "https://pypi.org/project/yfinance/",
+  AutoCAD: "https://www.autodesk.com/products/autocad/overview",
+  SolidWorks: "https://www.solidworks.com/",
+  ASCOM: "https://ascom-standards.org/",
+  NINA: "https://nighttime-imaging.eu/",
+  PHD2: "https://openphdguiding.org/",
+  PixInsight: "https://pixinsight.com/",
+  OnStep: "https://onstep.groups.io/g/main/wiki/home",
+  Photoshop: "https://www.adobe.com/products/photoshop.html",
+  Lodash: "https://lodash.com/",
+  Vercel: "https://vercel.com/",
+  Illustrator: "https://www.adobe.com/products/illustrator.html",
+  HLSL: "https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl",
 };
 
 export default skillToURLMap;

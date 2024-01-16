@@ -160,9 +160,11 @@ const projectData = [
       "React",
       "TypeScript",
       "Tailwind CSS",
+      "Node.js",
       "Framer Motion",
-      "Figma",
+      "Lodash",
       "Vercel",
+      "Figma",
       "Illustrator",
     ],
     thumbnail: {
