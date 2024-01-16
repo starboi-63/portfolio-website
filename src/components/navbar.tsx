@@ -11,6 +11,8 @@ import LinkedIn from "./icons/linkedin";
 import GitHub from "./icons/github";
 import Instagram from "./icons/instagram";
 
+const navbarHeight = 60; // pixels
+
 const navItems = [
   {
     name: "Experience",
@@ -43,7 +45,7 @@ export default function NavBar() {
   const [freezeHighlight, setFreezeHighlight] = useState(false);
 
   const getActiveSection = () => {
-    const threshold = window.innerHeight / 2 - 56; // 56 is the height of the navbar
+    const threshold = window.innerHeight / 2 - navbarHeight;
     const sections = document.querySelectorAll(".section-anchor");
 
     for (let i = sections.length - 1; i >= 0; i--) {
@@ -145,7 +147,9 @@ export default function NavBar() {
 
   return (
     <nav
-      className={`fixed top-0 z-10 flex min-w-full h-14 items-center border-b transition-all ease-out duration-250 ${
+      style={{ height: navbarHeight }}
+      className={`fixed top-0 z-10 flex min-w-full
+      } items-center border-b transition-all ease-out duration-250 ${
         isScrolled
           ? "bg-slate-400/5  border-slate-700 shadow-lg backdrop-blur-2xl"
           : "bg-transparent border-transparent"
@@ -181,7 +185,7 @@ export default function NavBar() {
               }}
             >
               <span
-                className={`text-sm transition-all ease-out duration-100 ${
+                className={`text-sm align-bottom leading-6 transition-all ease-out duration-100 ${
                   item.href === hoveredLink ||
                   (!hoveredLink && item.href === activeLink)
                     ? "text-slate-200"
@@ -207,9 +211,9 @@ export default function NavBar() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 top-3.5 h-[25px] overflow-hidden -z-20">
+      <div className="absolute inset-x-0 inset-y-4 overflow-hidden -z-20">
         <motion.div
-          className="absolute top-0 h-[25px] rounded-full bg-slate-200/15 -z-10"
+          className="absolute inset-y-0 rounded-full bg-slate-200/15 -z-10"
           layoutId="nav-item-highlight"
           style={highlightStyle}
           transition={{ type: "easeOut", duration: 0.1 }}
