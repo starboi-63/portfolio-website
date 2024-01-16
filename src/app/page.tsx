@@ -241,11 +241,11 @@ export default function Home() {
           </div>
           <div className="h-px w-367px bg-slate-700 my-4" />
           <p className="w-96 text-base font-normal text-slate-500">
-            Hey! I'm an undergraduate student who's fascinated by the
-            intersection of <span className="text-slate-200">programming</span>,{" "}
+            {`Hey! I\'m an undergraduate student who\'s fascinated by the intersection of `}{" "}
+            <span className="text-slate-200">programming</span>,{" "}
             <span className="text-slate-200">proof-writing</span>, and{" "}
-            <span className="text-slate-200">astronomy</span>. When I'm not
-            grinding coursework, you'll find me [dynamic content].
+            <span className="text-slate-200">astronomy</span>
+            {`. When I\'m not grinding coursework, you\'ll find me [dynamic content].`}
           </p>
         </div>
         <motion.div
