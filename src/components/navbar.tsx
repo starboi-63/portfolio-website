@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { throttle } from "lodash";
 import Image from "next/image";
 import TMLogo from "./icons/tanish-makadia-logo";
 import Link from "next/link";
@@ -97,7 +98,7 @@ export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const threshold = 0;
       console.log("scrolling: " + window.scrollY);
       setIsScrolled(window.scrollY > threshold);
@@ -105,7 +106,7 @@ export default function NavBar() {
       if (activeLink.includes("/#") && !freezeHighlight) {
         setActiveLink("/#" + getActiveSection());
       }
-    };
+    }, 100);
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
