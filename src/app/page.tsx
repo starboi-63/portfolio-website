@@ -239,7 +239,7 @@ export default function Home() {
               Brown University
             </h2>
           </div>
-          <div className="h-px w-367px bg-slate-700 my-4" />
+          <div className="h-px w-[367px] bg-slate-700 my-4" />
           <p className="w-96 text-base font-normal text-slate-500">
             {`Hey! I\'m an undergraduate student who\'s fascinated by the intersection of `}{" "}
             <span className="text-slate-200">programming</span>,{" "}

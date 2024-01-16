@@ -204,9 +204,11 @@ export default function NavBar() {
           <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
           <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
         </div>
+      </div>
 
+      <div className="absolute inset-x-0 top-3.5 h-[25px] overflow-hidden -z-20">
         <motion.div
-          className="absolute top-3.5 h-25px rounded-full bg-slate-200/15 -z-10"
+          className="absolute top-0 h-[25px] rounded-full bg-slate-200/15 -z-10"
           layoutId="nav-item-highlight"
           style={highlightStyle}
           transition={{ type: "easeOut", duration: 0.1 }}

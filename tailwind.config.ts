@@ -11,12 +11,6 @@ const config: Config = {
       colors: {
         "blue-link": "#58A6FF",
       },
-      height: {
-        "25px": "25px",
-      },
-      width: {
-        "367px": "367px",
-      },
       opacity: {
         "8": "0.08",
       },
