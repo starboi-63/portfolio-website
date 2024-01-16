@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import TMLogo from "./icons/tanish-makadia-logo";
 import Link from "next/link";
@@ -34,9 +35,11 @@ const navItems = [
 
 export default function NavBar() {
   const navRef = useRef<HTMLDivElement>(null);
+  const router = useRouter();
 
   // track active link to determine where highlight should return to on mouse leave
   const [activeLink, setActiveLink] = useState<string>("/#experience");
+  const [freezeHighlight, setFreezeHighlight] = useState(false);
 
   const getActiveSection = () => {
     const threshold = window.innerHeight / 2 - 56; // 56 is the height of the navbar
@@ -51,7 +54,42 @@ export default function NavBar() {
     }
   };
 
-  const handleLinkClick = (href: string) => {
+  const handleLinkClick = async (
+    event: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (activeLink.split("#")[0] === "/" && href.split("#")[0] === "/") {
+      // if routing from homepage to homepage, scroll to the section
+      event.preventDefault();
+      setFreezeHighlight(true);
+      const sectionElement = document.getElementById(href.split("#")[1]);
+
+      if (sectionElement) {
+        sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      setTimeout(() => {
+        setFreezeHighlight(false);
+      }, 500);
+    } else if (href.split("#")[0] === "/") {
+      // if routing from another page to homepage, delay so that cards can load
+      event.preventDefault();
+      setFreezeHighlight(true);
+      await router.push("/");
+
+      setTimeout(() => {
+        const sectionElement = document.getElementById(href.split("#")[1]);
+
+        if (sectionElement) {
+          sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }, 500);
+
+      setTimeout(() => {
+        setFreezeHighlight(false);
+      }, 1000);
+    }
+
     setActiveLink(href);
   };
 
@@ -60,20 +98,24 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = () => {
+      const threshold = 0;
       console.log("scrolling: " + window.scrollY);
-      setIsScrolled(window.scrollY > 0);
+      setIsScrolled(window.scrollY > threshold);
 
-      if (activeLink.includes("/#")) {
+      if (activeLink.includes("/#") && !freezeHighlight) {
         setActiveLink("/#" + getActiveSection());
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeLink]);
+  }, [activeLink, freezeHighlight]);
 
   // highlight style changes state based on active link and hovered link
-  const [highlightStyle, setHighlightStyle] = useState({});
+  const [highlightStyle, setHighlightStyle] = useState({
+    width: "0px",
+    left: "0px",
+  });
 
   const updateHighlight = (itemHref: string) => {
     console.log("updating highlight: " + itemHref);
@@ -81,13 +123,15 @@ export default function NavBar() {
 
     if (nav) {
       const activeItem = nav.querySelector(`[href="${itemHref}"]`);
-      const rect = activeItem?.getBoundingClientRect();
-      const navRect = nav.getBoundingClientRect();
+      if (activeItem) {
+        const rect = activeItem.getBoundingClientRect();
+        const navRect = nav.getBoundingClientRect();
 
-      setHighlightStyle({
-        width: (rect?.width ?? 0) + "px",
-        left: (rect?.left ?? 0) - navRect.left + "px",
-      });
+        setHighlightStyle({
+          width: rect.width + "px",
+          left: rect.left - navRect.left + "px",
+        });
+      }
     }
   };
 
@@ -125,7 +169,7 @@ export default function NavBar() {
               key={index}
               href={item.href}
               className="flex space-x-1.5 group px-3"
-              onClick={() => handleLinkClick(item.href)}
+              onClick={async (e) => handleLinkClick(e, item.href)}
               onMouseOver={() => {
                 setHoveredLink(item.href);
                 updateHighlight(item.href);
