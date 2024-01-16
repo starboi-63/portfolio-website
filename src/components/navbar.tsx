@@ -184,7 +184,7 @@ export default function NavBar() {
               }}
             >
               <span
-                className={`text-sm align-bottom leading-6 transition-all ease-out duration-100 ${
+                className={`text-sm align-bottom leading-normal transition-all ease-out duration-100 ${
                   item.href === hoveredLink ||
                   (!hoveredLink && item.href === activeLink)
                     ? "text-slate-200"
