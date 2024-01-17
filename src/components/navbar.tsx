@@ -102,7 +102,6 @@ export default function NavBar() {
   useEffect(() => {
     const handleScroll = throttle(() => {
       const threshold = 0;
-      console.log("scrolling: " + window.scrollY);
       setIsScrolled(window.scrollY > threshold);
 
       if (activeLink.includes("/#") && !freezeHighlight) {
@@ -110,6 +109,7 @@ export default function NavBar() {
       }
     }, 100);
 
+    handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [activeLink, freezeHighlight]);
@@ -121,7 +121,6 @@ export default function NavBar() {
   });
 
   const updateHighlight = (itemHref: string) => {
-    console.log("updating highlight: " + itemHref);
     const nav = navRef.current;
 
     if (nav) {
