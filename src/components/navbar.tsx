@@ -157,9 +157,7 @@ export default function NavBar() {
       <Link
         href="/"
         className="flex flex-grow max-w-36 justify-center items-center group"
-        onClick={() => {
-          setActiveLink("/#experience");
-        }}
+        onClick={async (e) => handleLinkClick(e, "/#experience")}
       >
         <TMLogo className="ml-1.5 fill-slate-200" />
         <span className="font-bold text-slate-200 pr-3">TM</span>
