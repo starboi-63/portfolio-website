@@ -54,7 +54,7 @@ export default function RotatingCard(props: RotatingCardProps) {
   useEffect(() => {
     dx.set(xOffset);
     dy.set(yOffset);
-  }, [xOffset, yOffset]);
+  }, [xOffset, yOffset, dx, dy]);
 
   return (
     <div
