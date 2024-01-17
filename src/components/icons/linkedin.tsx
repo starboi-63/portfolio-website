@@ -1,12 +1,14 @@
-import Link from "next/link";
-
 interface LinkedInProps {
   className?: string;
 }
 
 export default function LinkedIn(props: LinkedInProps) {
   return (
-    <Link href="https://www.linkedin.com/in/tanish-makadia/">
+    <a
+      href="https://www.linkedin.com/in/tanish-makadia/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <svg
         className={props.className}
         width="22"
@@ -26,6 +28,6 @@ export default function LinkedIn(props: LinkedInProps) {
           </clipPath>
         </defs>
       </svg>
-    </Link>
+    </a>
   );
 }

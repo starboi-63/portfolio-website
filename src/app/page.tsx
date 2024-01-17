@@ -252,7 +252,7 @@ export default function Home() {
         </div>
         <motion.div
           id="experience"
-          className="section-anchor pt-24 pb-28 flex flex-col items-center space-y-6"
+          className="section-anchor pt-24 pb-60 flex flex-col items-center space-y-6"
           variants={containerVariants}
           initial="hidden"
           animate="visible"

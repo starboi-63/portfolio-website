@@ -1,12 +1,14 @@
-import Link from "next/link";
-
 interface GitHubProps {
   className?: string;
 }
 
 export default function GitHub(props: GitHubProps) {
   return (
-    <Link href="https://github.com/starboi-63">
+    <a
+      href="https://github.com/starboi-63"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <svg
         className={props.className}
         width="22"
@@ -28,6 +30,6 @@ export default function GitHub(props: GitHubProps) {
           </clipPath>
         </defs>
       </svg>
-    </Link>
+    </a>
   );
 }

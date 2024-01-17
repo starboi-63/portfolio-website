@@ -1,12 +1,14 @@
-import Link from "next/link";
-
 interface InstagramProps {
   className?: string;
 }
 
 export default function Instagram(props: InstagramProps) {
   return (
-    <Link href="https://www.instagram.com/tanishmakadia.astro/">
+    <a
+      href="https://www.instagram.com/tanishmakadia.astro/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       <svg
         className={props.className}
         width="22"
@@ -32,6 +34,6 @@ export default function Instagram(props: InstagramProps) {
           </clipPath>
         </defs>
       </svg>
-    </Link>
+    </a>
   );
 }

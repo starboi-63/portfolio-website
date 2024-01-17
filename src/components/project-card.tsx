@@ -1,4 +1,4 @@
-import RotatingCard from "./rotating-card";
+import RotatingCard from "./sub-components/rotating-card";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import skillToURLMap from "@/lib/skill-to-url-map";
