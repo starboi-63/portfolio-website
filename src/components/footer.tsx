@@ -7,11 +7,11 @@ import ToolLink from "./sub-components/tool-link";
 
 export default function Footer() {
   return (
-    <footer className="absolute bottom-0 w-screen pt-3 pb-6 px-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
+    <footer className="absolute bottom-0 w-screen pt-3 pb-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
       <div className="flex flex-col">
         <div className="flex items-center">
           <Link href="/">
-            <TMLogo className="fill-slate-400 hover:fill-slate-200" />
+            <TMLogo className="fill-slate-400 hover:fill-slate-200 ml-6" />
           </Link>
           <div className="relative">
             <span className="text-sm text-slate-400">
@@ -35,7 +35,7 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="flex mt-20 ml-3 space-x-8">
+        <div className="flex mt-20 ml-[34px] space-x-8">
           <GitHub className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
           <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
           <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
