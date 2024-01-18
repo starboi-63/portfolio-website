@@ -1,14 +1,14 @@
 "use client";
 
-import { createContext, useState } from "react";
-import { useRouter } from "next/navigation";
+import { createContext, useState, useEffect, useMemo } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 interface NavigationContextProps {
   children: React.ReactNode;
 }
 
 interface NavigationContextType {
-  path: string;
+  pathname: string;
   activeLink: string;
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
   freezeHighlight: boolean;
@@ -19,7 +19,7 @@ interface NavigationContextType {
 }
 
 export const NavigationContext = createContext<NavigationContextType>({
-  path: "/",
+  pathname: "/",
   activeLink: "/#experience",
   setActiveLink: () => {},
   freezeHighlight: false,
@@ -27,39 +27,50 @@ export const NavigationContext = createContext<NavigationContextType>({
 });
 
 export default function NavigationProvider(props: NavigationContextProps) {
-  const [path, setPath] = useState<string>("/");
-  const [activeLink, setActiveLink] = useState<string>("/#experience");
+  const [activeLink, setActiveLink] = useState<string>("");
   const [freezeHighlight, setFreezeHighlight] = useState(false);
   const router = useRouter();
+  const pathname = usePathname();
 
   // map hrefs to their corresponding active links in the navbar
   interface HrefToActiveLinkMap {
     [href: string]: string;
   }
 
-  const hrefToActiveLinkMap: HrefToActiveLinkMap = {
-    "/": "/#experience",
-    "/#experience": "/#experience",
-    "/#projects": "/#projects",
-    "/blog": "/blog",
-    "/astrophotography": "/astrophotography",
-    "/uses": "/uses",
-    "/projects/stock-screener": "/#projects",
-    "/projects/eq-mount": "/#projects",
-  };
+  const hrefToActiveLinkMap: HrefToActiveLinkMap = useMemo(
+    () => ({
+      "/": "/#experience",
+      "/#experience": "/#experience",
+      "/#projects": "/#projects",
+      "/blog": "/blog",
+      "/astrophotography": "/astrophotography",
+      "/uses": "/uses",
+      "/projects/stock-screener": "/#projects",
+      "/projects/eq-mount": "/#projects",
+    }),
+    []
+  );
+
+  // set active link based on current pathname
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveLink(hrefToActiveLinkMap[pathname]);
+    }
+  }, [pathname, hrefToActiveLinkMap]);
 
   // handle all possible navigation link clicks
   const handleLinkClick = async (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    const fromPath = path;
+    const fromPath = pathname;
     const toLinkParts = href.split("#");
     const toPath = toLinkParts[0];
     const toSection = toLinkParts[1];
 
     if (fromPath === "/" && toPath === "/") {
       // if routing from homepage to homepage, scroll to the section
+      setActiveLink(hrefToActiveLinkMap[href]);
       event.preventDefault();
       setFreezeHighlight(true);
       const sectionElement = document.getElementById(toSection);
@@ -73,6 +84,7 @@ export default function NavigationProvider(props: NavigationContextProps) {
       }, 500);
     } else if (toPath === "/") {
       // if routing from another page to homepage, delay so that cards can load
+      setActiveLink(hrefToActiveLinkMap[href]);
       event.preventDefault();
       setFreezeHighlight(true);
       await router.push("/");
@@ -89,15 +101,12 @@ export default function NavigationProvider(props: NavigationContextProps) {
         setFreezeHighlight(false);
       }, 1000);
     }
-
-    setPath(toPath);
-    setActiveLink(hrefToActiveLinkMap[href]);
   };
 
   return (
     <NavigationContext.Provider
       value={{
-        path,
+        pathname,
         activeLink,
         setActiveLink,
         freezeHighlight,
