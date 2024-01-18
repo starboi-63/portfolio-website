@@ -8,6 +8,7 @@ interface NavigationContextProps {
 }
 
 interface NavigationContextType {
+  path: string;
   activeLink: string;
   setActiveLink: React.Dispatch<React.SetStateAction<string>>;
   freezeHighlight: boolean;
@@ -18,6 +19,7 @@ interface NavigationContextType {
 }
 
 export const NavigationContext = createContext<NavigationContextType>({
+  path: "/",
   activeLink: "/#experience",
   setActiveLink: () => {},
   freezeHighlight: false,
@@ -25,25 +27,42 @@ export const NavigationContext = createContext<NavigationContextType>({
 });
 
 export default function NavigationProvider(props: NavigationContextProps) {
+  const [path, setPath] = useState<string>("/");
   const [activeLink, setActiveLink] = useState<string>("/#experience");
   const [freezeHighlight, setFreezeHighlight] = useState(false);
   const router = useRouter();
+
+  // map hrefs to their corresponding active links in the navbar
+  interface HrefToActiveLinkMap {
+    [href: string]: string;
+  }
+
+  const hrefToActiveLinkMap: HrefToActiveLinkMap = {
+    "/": "/#experience",
+    "/#experience": "/#experience",
+    "/#projects": "/#projects",
+    "/blog": "/blog",
+    "/astrophotography": "/astrophotography",
+    "/uses": "/uses",
+    "/projects/stock-screener": "/#projects",
+    "/projects/eq-mount": "/#projects",
+  };
 
   // handle all possible navigation link clicks
   const handleLinkClick = async (
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
-    const fromLinkParts = activeLink.split("#");
+    const fromPath = path;
     const toLinkParts = href.split("#");
-    const fromPath = fromLinkParts[0];
     const toPath = toLinkParts[0];
+    const toSection = toLinkParts[1];
 
     if (fromPath === "/" && toPath === "/") {
       // if routing from homepage to homepage, scroll to the section
       event.preventDefault();
       setFreezeHighlight(true);
-      const sectionElement = document.getElementById(href.split("#")[1]);
+      const sectionElement = document.getElementById(toSection);
 
       if (sectionElement) {
         sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -59,7 +78,7 @@ export default function NavigationProvider(props: NavigationContextProps) {
       await router.push("/");
 
       setTimeout(() => {
-        const sectionElement = document.getElementById(href.split("#")[1]);
+        const sectionElement = document.getElementById(toSection);
 
         if (sectionElement) {
           sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -71,12 +90,19 @@ export default function NavigationProvider(props: NavigationContextProps) {
       }, 1000);
     }
 
-    setActiveLink(href);
+    setPath(toPath);
+    setActiveLink(hrefToActiveLinkMap[href]);
   };
 
   return (
     <NavigationContext.Provider
-      value={{ activeLink, setActiveLink, freezeHighlight, handleLinkClick }}
+      value={{
+        path,
+        activeLink,
+        setActiveLink,
+        freezeHighlight,
+        handleLinkClick,
+      }}
     >
       {props.children}
     </NavigationContext.Provider>

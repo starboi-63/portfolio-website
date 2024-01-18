@@ -37,7 +37,7 @@ const navItems = [
 ];
 
 export default function NavBar() {
-  const { activeLink, setActiveLink, freezeHighlight, handleLinkClick } =
+  const { path, activeLink, setActiveLink, freezeHighlight, handleLinkClick } =
     useContext(NavigationContext);
 
   // determine which section is currently active (applicable to the homepage only)
@@ -62,7 +62,7 @@ export default function NavBar() {
       const threshold = 0;
       setIsScrolled(window.scrollY > threshold);
 
-      if (activeLink.includes("/#") && !freezeHighlight) {
+      if (path === "/" && !freezeHighlight) {
         setActiveLink("/#" + getActiveSection());
       }
     }, 100);
@@ -70,7 +70,7 @@ export default function NavBar() {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [activeLink, freezeHighlight]);
+  }, [path, activeLink, freezeHighlight]);
 
   // highlight style changes state based on active link and hovered link
   const [highlightStyle, setHighlightStyle] = useState({

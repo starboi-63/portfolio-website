@@ -148,7 +148,7 @@ const projectData = [
       width: 125,
       height: 42,
     },
-    href: "/eq-mount",
+    href: "/projects/eq-mount",
   },
   {
     title: "Portfolio Website",
@@ -188,7 +188,7 @@ const projectData = [
       width: 125,
       height: 42,
     },
-    href: "/stock-screener",
+    href: "/projects/stock-screener",
   },
   {
     title: "Plasmodial Slime Simulation",
