@@ -113,7 +113,7 @@ export default function Footer() {
         </div>
         <div className="flex flex-col space-y-2">
           <MainLink href="/blog">Blog</MainLink>
-          <div className="grid grid-cols-2 gap-y-2 gap-x-10">
+          <div className="grid grid-cols-2 gap-y-2 gap-x-20">
             {blogLinks.map((link, index) => (
               <SubLink key={index} href={link.href}>
                 {link.text}
