@@ -65,7 +65,7 @@ const experienceData = [
       height: 42,
     },
     links: [
-      { text: "BSE Website", url: "https://brownspace.org" },
+      // { text: "BSE Website", url: "https://brownspace.org" },
       { text: "GitHub", url: "https://github.com/BrownSpaceEngineering" },
       { text: "LinkedIn", url: "https://www.linkedin.com/company/brownspace" },
       { text: "Facebook", url: "https://www.facebook.com/browncubesat/" },
