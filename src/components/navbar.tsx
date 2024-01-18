@@ -64,11 +64,18 @@ export default function NavBar() {
 
   useEffect(() => {
     const handleScroll = throttle(() => {
-      const threshold = 0;
-      setIsScrolled(window.scrollY > threshold);
+      const scrolled = window.scrollY > 0;
+
+      if (scrolled !== isScrolled) {
+        setIsScrolled(scrolled);
+      }
 
       if (pathname === "/" && !freezeHighlight) {
-        setActiveLink("/#" + getActiveSection());
+        const newActiveLink = "/#" + getActiveSection();
+
+        if (newActiveLink !== activeLink) {
+          setActiveLink(newActiveLink);
+        }
       }
     }, 100);
 
@@ -79,7 +86,7 @@ export default function NavBar() {
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [pathname, setActiveLink, freezeHighlight]);
+  }, [pathname, activeLink, setActiveLink, isScrolled, freezeHighlight]);
 
   // highlight style changes state based on active link and hovered link
   const [highlightStyle, setHighlightStyle] = useState({
