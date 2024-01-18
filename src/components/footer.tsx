@@ -10,11 +10,10 @@ import LinkedIn from "./icons/linkedin";
 import ToolLink from "./sub-components/tool-link";
 
 export default function Footer() {
-  const { activeLink, setActiveLink, handleLinkClick } =
-    useContext(NavigationContext);
+  const { handleLinkClick } = useContext(NavigationContext);
 
   return (
-    <footer className="absolute bottom-0 w-screen pt-3 pb-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
+    <footer className="absolute bottom-0 w-screen flex pt-3 pb-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
       <div className="flex flex-col">
         <div className="flex items-center">
           <Link
@@ -25,7 +24,7 @@ export default function Footer() {
           </Link>
           <div className="relative">
             <span className="text-sm text-slate-400">
-              © 2024 Tanish Makadia. All Rights Reserved.
+              © {new Date().getFullYear()} Tanish Makadia. All Rights Reserved.
             </span>
             <span className="absolute inset-x-0 top-[40px] text-xs text-slate-600">
               Website prototyped in{" "}
@@ -51,6 +50,7 @@ export default function Footer() {
           <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
         </div>
       </div>
+      <div>Lorem Ipsum</div>
     </footer>
   );
 }
