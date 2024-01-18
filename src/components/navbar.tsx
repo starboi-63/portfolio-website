@@ -70,7 +70,7 @@ export default function NavBar() {
     handleScroll();
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [path, activeLink, freezeHighlight]);
+  }, [path, setActiveLink, freezeHighlight]);
 
   // highlight style changes state based on active link and hovered link
   const [highlightStyle, setHighlightStyle] = useState({
