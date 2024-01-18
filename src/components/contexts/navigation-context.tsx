@@ -47,6 +47,12 @@ export default function NavigationProvider(props: NavigationContextProps) {
       "/uses": "/uses",
       "/projects/stock-screener": "/#projects",
       "/projects/eq-mount": "/#projects",
+      "/blog/separating-hyperplanes": "/blog",
+      "/blog/gear-calculations": "/blog",
+      "/blog/turning-worm-gears": "/blog",
+      "/blog/machining-worm-wheels": "/blog",
+      "/blog/cutting-parts": "/blog",
+      "/blog/fitting-bearings": "/blog",
     }),
     []
   );
@@ -63,6 +69,13 @@ export default function NavigationProvider(props: NavigationContextProps) {
     event: React.MouseEvent<HTMLAnchorElement>,
     href: string
   ) => {
+    // if the link is external, open it in a new tab
+    if (!(href in hrefToActiveLinkMap)) {
+      event.preventDefault();
+      window.open(href, "_blank", "noopener noreferrer");
+      return;
+    }
+
     const fromPath = pathname;
     const toLinkParts = href.split("#");
     const toPath = toLinkParts[0];
