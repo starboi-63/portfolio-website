@@ -68,6 +68,12 @@ export default function NavigationProvider(props: NavigationContextProps) {
     const toPath = toLinkParts[0];
     const toSection = toLinkParts[1];
 
+    // if scrolling is in progress, prevent navigation to avoid bugs
+    if (freezeHighlight) {
+      event.preventDefault();
+      return;
+    }
+
     if (fromPath === "/" && toPath === "/") {
       // if routing from homepage to homepage, scroll to the section
       setActiveLink(hrefToActiveLinkMap[href]);

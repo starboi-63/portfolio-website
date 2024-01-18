@@ -71,10 +71,14 @@ export default function NavBar() {
       }
 
       if (pathname === "/" && !freezeHighlight) {
-        const newActiveLink = "/#" + getActiveSection();
+        const activeSection = getActiveSection();
 
-        if (newActiveLink !== activeLink) {
-          setActiveLink(newActiveLink);
+        if (activeSection) {
+          const newActiveLink = "/#" + activeSection;
+
+          if (newActiveLink !== activeLink) {
+            setActiveLink(newActiveLink);
+          }
         }
       }
     }, 100);
