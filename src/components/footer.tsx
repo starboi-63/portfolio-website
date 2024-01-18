@@ -1,3 +1,7 @@
+"use client";
+
+import { useContext } from "react";
+import { NavigationContext } from "./contexts/navigation-context";
 import Link from "next/link";
 import TMLogo from "./icons/tanish-makadia-logo";
 import GitHub from "./icons/github";
@@ -6,6 +10,9 @@ import LinkedIn from "./icons/linkedin";
 import ToolLink from "./sub-components/tool-link";
 
 export default function Footer() {
+  const { activeLink, setActiveLink, handleLinkClick } =
+    useContext(NavigationContext);
+
   return (
     <footer className="absolute bottom-0 w-screen pt-3 pb-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
       <div className="flex flex-col">

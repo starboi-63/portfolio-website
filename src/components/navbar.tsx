@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState, useRef, useContext } from "react";
 import { motion } from "framer-motion";
-import { useRouter } from "next/navigation";
 import { throttle } from "lodash";
+import { NavigationContext } from "./contexts/navigation-context";
 import Image from "next/image";
 import TMLogo from "./icons/tanish-makadia-logo";
 import Link from "next/link";
@@ -37,13 +37,10 @@ const navItems = [
 ];
 
 export default function NavBar() {
-  const navRef = useRef<HTMLDivElement>(null);
-  const router = useRouter();
+  const { activeLink, setActiveLink, freezeHighlight, handleLinkClick } =
+    useContext(NavigationContext);
 
-  // track active link to determine where highlight should return to on mouse leave
-  const [activeLink, setActiveLink] = useState<string>("/#experience");
-  const [freezeHighlight, setFreezeHighlight] = useState(false);
-
+  // determine which section is currently active (applicable to the homepage only)
   const getActiveSection = () => {
     const threshold = window.innerHeight / 2 - navbarHeight;
     const sections = document.querySelectorAll(".section-anchor");
@@ -55,45 +52,6 @@ export default function NavBar() {
         return sections[i].id;
       }
     }
-  };
-
-  const handleLinkClick = async (
-    event: React.MouseEvent<HTMLAnchorElement>,
-    href: string
-  ) => {
-    if (activeLink.split("#")[0] === "/" && href.split("#")[0] === "/") {
-      // if routing from homepage to homepage, scroll to the section
-      event.preventDefault();
-      setFreezeHighlight(true);
-      const sectionElement = document.getElementById(href.split("#")[1]);
-
-      if (sectionElement) {
-        sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-
-      setTimeout(() => {
-        setFreezeHighlight(false);
-      }, 500);
-    } else if (href.split("#")[0] === "/") {
-      // if routing from another page to homepage, delay so that cards can load
-      event.preventDefault();
-      setFreezeHighlight(true);
-      await router.push("/");
-
-      setTimeout(() => {
-        const sectionElement = document.getElementById(href.split("#")[1]);
-
-        if (sectionElement) {
-          sectionElement.scrollIntoView({ behavior: "smooth", block: "start" });
-        }
-      }, 500);
-
-      setTimeout(() => {
-        setFreezeHighlight(false);
-      }, 1000);
-    }
-
-    setActiveLink(href);
   };
 
   // track scroll position to change navbar style and update active link
@@ -120,8 +78,10 @@ export default function NavBar() {
     left: "0px",
   });
 
+  const navbarRef = useRef<HTMLDivElement>(null);
+
   const updateHighlight = (itemHref: string) => {
-    const nav = navRef.current;
+    const nav = navbarRef.current;
 
     if (nav) {
       const activeItem = nav.querySelector(`[href="${itemHref}"]`);
@@ -152,7 +112,7 @@ export default function NavBar() {
           ? "bg-slate-400/5 border-slate-700 shadow-lg backdrop-blur-2xl"
           : "bg-transparent border-transparent"
       }`}
-      ref={navRef}
+      ref={navbarRef}
     >
       <Link
         href="/"
