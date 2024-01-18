@@ -17,7 +17,10 @@ export default function Footer() {
     <footer className="absolute bottom-0 w-screen pt-3 pb-6 bg-slate-400/5 border-t border-slate-700 shadow-lg backdrop-blur-2xl z-10">
       <div className="flex flex-col">
         <div className="flex items-center">
-          <Link href="/">
+          <Link
+            href="/"
+            onClick={async (e) => handleLinkClick(e, "/#experience")}
+          >
             <TMLogo className="fill-slate-400 hover:fill-slate-200 ml-6" />
           </Link>
           <div className="relative">
