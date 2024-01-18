@@ -67,7 +67,11 @@ export default function NavBar() {
       }
     }, 100);
 
-    handleScroll();
+    // wait for page to load before determining initial active section
+    setTimeout(() => {
+      handleScroll();
+    }, 100);
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [path, setActiveLink, freezeHighlight]);
