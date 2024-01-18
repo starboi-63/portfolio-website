@@ -136,8 +136,9 @@ export default function NavBar() {
         onClick={async (e) => handleLinkClick(e, "/#experience")}
       >
         <TMLogo className="ml-1.5 fill-slate-200" />
-        <span className="relative font-bold text-slate-200 mr-3 after:absolute after:left-0 after:bottom-0 after:bg-slate-400 after:h-px after:w-0 group-hover:after:w-full after:transition-all after:ease-out after:duration-100">
+        <span className="font-bold text-slate-200 mr-3">
           TM
+          <div className="-translate-y-[1px] bg-slate-400 h-px w-0 group-hover:w-full transition-all ease-out duration-100" />
         </span>
       </Link>
       <div className="w-px h-6 border-r border-slate-700" />
