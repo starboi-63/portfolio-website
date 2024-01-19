@@ -14,7 +14,6 @@ export default function RootLayout(props: RootLayoutProps) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="-z-20 fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-slate-950 to-slate-900" />
         <div className="relative min-h-screen">
           <NavigationProvider>
             <NavBar />

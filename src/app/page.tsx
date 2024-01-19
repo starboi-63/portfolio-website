@@ -230,6 +230,7 @@ const itemVariants = {
 export default function Home() {
   return (
     <main>
+      <div className="-z-20 fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-slate-950 to-slate-900" />
       <div className="flex justify-center space-x-20">
         <div className="sticky top-0 pt-28 h-screen flex flex-col items-start">
           <h1 className="text-5xl font-bold text-slate-200">Tanish Makadia</h1>
