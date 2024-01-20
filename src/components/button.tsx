@@ -24,7 +24,7 @@ export default function Button(props: ButtonProps) {
       <button
         className={
           props.className +
-          " flex items-center text-slate-300 text-sm pl-4 pr-5 py-2 border bg-slate-400/5 border-slate-700 rounded-none shadow-lg hover:bg-slate-400/15 hover:border-slate-200/50 backdrop-blur-2xl transition-all ease-out duration-100 group"
+          " flex items-center text-slate-300 text-sm pl-4 pr-5 py-2 border bg-slate-400/5 border-slate-700 rounded-none shadow-xl hover:bg-slate-400/15 hover:border-slate-200/50 backdrop-blur-2xl transition-all ease-out duration-100 group"
         }
       >
         {props.children}

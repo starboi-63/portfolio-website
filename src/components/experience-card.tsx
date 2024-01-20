@@ -82,7 +82,7 @@ function cardFront(
     <RotatingCard onClick={handleCardClick}>
       <div
         ref={ref}
-        className="flex p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/30 transition-all ease-out duration-100 backdrop-blur-2xl group"
+        className="flex p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl hover:bg-slate-400/8 hover:border-slate-200/30 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
         <div className="w-[136px] flex flex-col items-center space-y-6 flex-shrink-0">
           <span className="text-xs font-medium text-slate-500">
@@ -161,7 +161,7 @@ function cardBack(
     <RotatingCard onClick={handleCardClick}>
       <div
         style={{ height: size.height + "px" }}
-        className="flex flex-col justify-center items-center p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg hover:bg-slate-400/8 hover:border-slate-200/25 transition-all ease-out duration-100 backdrop-blur-2xl group"
+        className="flex flex-col justify-center items-center p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl hover:bg-slate-400/8 hover:border-slate-200/25 transition-all ease-out duration-100 backdrop-blur-2xl group"
       >
         <h2 className="font-medium text-slate-200">{props.organization}</h2>
         <ul className="flex flex-wrap justify-center gap-3 mt-4">

@@ -34,7 +34,7 @@ export default function EQMount() {
             </div>
           </div>
         </div>
-        <div className="relative flex justify-center items-center w-[600px] h-[600px] border bg-slate-400/5 border-slate-700 rounded-xl shadow-lg backdrop-blur-2xl">
+        <div className="relative flex justify-center items-center w-[600px] h-[600px] border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl">
           <Image
             src="/mount-render.png"
             alt="EQ-Mount SolidWorks Visualize Render"
@@ -46,7 +46,7 @@ export default function EQMount() {
           </span>
         </div>
       </div>
-      <div className="flex flex-col items-center min-h-screen">
+      <div className="flex flex-col items-center min-h-screen space-y-10">
         <h3 className="text-xl text-slate-400 mt-10">
           See how each aspect of the mount was fabricated, step-by-step.
         </h3>

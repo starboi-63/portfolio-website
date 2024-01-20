@@ -129,7 +129,7 @@ export default function NavBar() {
       style={{ height: navbarHeight }}
       className={`fixed top-0 z-10 flex min-w-full items-center border-b transition-all ease-out duration-250 ${
         isScrolled
-          ? "bg-slate-400/5 border-slate-700 shadow-lg backdrop-blur-2xl"
+          ? "bg-slate-400/5 border-slate-700 shadow-xl backdrop-blur-2xl"
           : "bg-transparent border-transparent"
       }`}
       ref={navbarRef}
