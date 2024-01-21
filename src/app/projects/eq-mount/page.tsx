@@ -57,26 +57,78 @@ export default function EQMount() {
         <h3 className="text-xl text-slate-400 mt-10">
           See how each aspect of the mount was fabricated, step-by-step.
         </h3>
-        <DescriptionCard className="min-w-64 max-w-80" title="GOTO Capable">
-          <div className="flex flex-col space-y-4">
-            <p className="text-slate-400">
-              A central <span className="text-slate-300">STM32 controller</span>{" "}
-              flashed with OnStep Firmware enables plate-solving and automatic
-              framing of celestial objects.
-            </p>
-            <p className="text-slate-400">
-              Autoguiding minimizes periodic error by interfacing with OnStep
-              via an ST4 port or directly through pulse guiding.
-            </p>
-          </div>
-          <Button
-            href="https://onstep.groups.io/g/main/wiki/Home"
-            className="mt-5"
+        <div className="flex space-x-12 h-[407px]">
+          <DescriptionCard
+            className="min-w-64 max-w-80 h-full"
+            title="GOTO Capable"
           >
-            OnStep Firmware
-          </Button>
-          <span className="text-xs text-slate-500">by Howard Dutton</span>
-        </DescriptionCard>
+            <div className="flex flex-col space-y-4">
+              <p className="text-slate-400">
+                A central{" "}
+                <span className="text-slate-300">STM32 controller</span> flashed
+                with OnStep Firmware enables plate-solving and automatic framing
+                of celestial objects.
+              </p>
+              <p className="text-slate-400">
+                Autoguiding minimizes periodic error by interfacing with OnStep
+                via an ST4 port or directly through pulse guiding.
+              </p>
+            </div>
+            <Button
+              href="https://onstep.groups.io/g/main/wiki/Home"
+              className="mt-5"
+            >
+              OnStep Firmware
+            </Button>
+            <p className="text-xs text-slate-500 mt-1.5">by Howard Dutton</p>
+          </DescriptionCard>
+          <DescriptionCard
+            className="min-w-64 max-w-80 h-[407px]"
+            title="High Resolution"
+          >
+            <div className="flex flex-col space-y-4">
+              <p className="text-slate-400">
+                Micro-stepping with a{" "}
+                <span className="text-slate-300">360:1 worm gear</span> ratio
+                combined with a 3:1 reduction ratio allows slow, accurate
+                tracking of the night sky.
+              </p>
+              <p className="text-slate-400">
+                The higher the gear ratio, the more continuous the mount's
+                movement appears.
+              </p>
+            </div>
+            <Button href="/blog/gear-calculations" className="mt-5">
+              Machining Worm Gears
+            </Button>
+            <p className="text-xs text-slate-500 leading-normal mt-1.5">
+              Fabricating accurate worm gears using a CNC mill and lathe.
+            </p>
+          </DescriptionCard>
+          <DescriptionCard
+            className="min-w-64 max-w-80 h-[407px]"
+            title="Stable"
+          >
+            <div className="flex flex-col space-y-4">
+              <p className="text-slate-400">
+                A rigid 0.5”{" "}
+                <span className="text-slate-300">aluminum and alloy steel</span>{" "}
+                design minimizes vibration, contributing to tracking accuracy.
+              </p>
+              <p className="text-slate-400">
+                Sturdy twin-row angular contact bearings are used to transfer
+                rotation along the mount's RA and DEC axes.
+              </p>
+            </div>
+            <Button href="/blog/cutting-parts" className="mt-5">
+              Structure Fabrication
+            </Button>
+            <p className="text-xs text-slate-500 leading-normal mt-1.5">
+              Machining aluminum parts and steel shafts using a CNC router,
+              mill, and lathe.
+            </p>
+          </DescriptionCard>
+        </div>
       </div>
     </main>
   );
