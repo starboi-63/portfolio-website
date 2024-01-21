@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/button";
 import DescriptionCard from "@/components/description-card";
+import GlowingCard from "@/components/sub-components/glowing-card";
 
 export default function EQMount() {
   return (
@@ -34,17 +35,23 @@ export default function EQMount() {
             </div>
           </div>
         </div>
-        <div className="relative flex justify-center items-center w-[600px] h-[600px] border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl">
-          <Image
-            src="/mount-render.png"
-            alt="EQ-Mount SolidWorks Visualize Render"
-            width={500}
-            height={500}
-          />
-          <span className="absolute -bottom-6 text-xs text-slate-500">
-            SolidWorks Visualize Render
-          </span>
-        </div>
+        <GlowingCard
+          className="blur fill-blue-900"
+          glowRadius={250}
+          glowOpacity={0.05}
+        >
+          <div className="relative flex justify-center items-center w-[600px] h-[600px] border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl">
+            <Image
+              src="/mount-render.png"
+              alt="EQ-Mount SolidWorks Visualize Render"
+              width={500}
+              height={500}
+            />
+            <span className="absolute -bottom-6 text-xs text-slate-500">
+              SolidWorks Visualize Render
+            </span>
+          </div>
+        </GlowingCard>
       </div>
       <div className="flex flex-col items-center min-h-screen space-y-10">
         <h3 className="text-xl text-slate-400 mt-10">

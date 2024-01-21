@@ -12,7 +12,11 @@ interface DescriptionCardProps {
 export default function DescriptionCard(props: DescriptionCardProps) {
   return (
     <RotatingCard>
-      <GlowingCard className="blur opacity-15 fill-blue-900" glowRadius={125}>
+      <GlowingCard
+        className="blur opacity-15 fill-blue-900"
+        glowRadius={125}
+        glowOpacity={0.15}
+      >
         <div
           className={
             props.className +
