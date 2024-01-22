@@ -90,9 +90,27 @@ export default function ProjectCard(props: ProjectCardProps) {
                   {props.subtitle}
                 </h2>
               )}
-              <span className="mt-3 text-sm text-slate-400">
-                {props.description}
-              </span>
+              <div className="mt-3 text-sm text-slate-400">
+                {props.description
+                  // text enclosed in curly braces will be highlighted on hover
+                  .split(/({|})/)
+                  .map((substring, index, array) => {
+                    if (index > 0 && array[index - 1] === "{") {
+                      return (
+                        <span
+                          key={index}
+                          className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                        >
+                          {substring}
+                        </span>
+                      );
+                    } else if (substring === "{" || substring === "}") {
+                      return null;
+                    } else {
+                      return <span key={index}>{substring}</span>;
+                    }
+                  })}
+              </div>
               <ul className="flex flex-wrap justify-start items-center mt-6 gap-2">
                 {props.skills.map((skill, index) => (
                   <li

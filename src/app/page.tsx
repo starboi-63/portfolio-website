@@ -10,8 +10,8 @@ const experienceData = [
     titles: ["Software Engineer"],
     dates: "SEP 2023 — PRESENT",
     accomplishments: [
-      "Developed full-stack web applications for the Conversational AI Lab and Rangel Research Team at Brown University.",
-      "Designed elegant, responsive UI for websites in close collaboration with clients.",
+      "Developed {full-stack web applications} for the Conversational AI Lab and Rangel Research Team at Brown University.",
+      "Designed {elegant, responsive UI} for websites in close collaboration with clients.",
     ],
     skills: [
       "Next.js",
@@ -53,9 +53,9 @@ const experienceData = [
     titles: ["Flight Software Lead", "Flight Software Developer"],
     dates: "SEP 2022 — PRESENT",
     accomplishments: [
-      "Overseeing a team of 10+ members in the development of the operating system for Perovskite Visuals and Degradation eXperiment (PVDX), a 3U-CubeSat approved by NASA's CubeSat Launch Initiative (CSLI) to test the resilience of next-gen perovskite solar cells (PSCs) in harsh orbital environments.",
-      "Collaborating with the executive board in weekly meetings to align project goals and milestones, ensuring successful integration with the launch vehicle and compliance with NASA's CubeSat standard.",
-      "Designed a watchdog system to monitor the health of tasks within the satellite's OS and a sensor-locking system to enable concurrent data retrieval from multiple satellite sensors across I2C serial communication buses.",
+      "Overseeing a team of {10+ members} in the development of the {operating system} for Perovskite Visuals and Degradation eXperiment (PVDX), a {3U-CubeSat} approved by {NASA}'s CubeSat Launch Initiative (CSLI) to test the resilience of next-gen {perovskite solar cells} (PSCs) in harsh orbital environments.",
+      "Collaborating with the {executive board} in weekly meetings to align project goals and milestones, ensuring successful integration with the launch vehicle and compliance with NASA's CubeSat standard.",
+      "Designed a {watchdog system} to monitor the health of tasks within the satellite's OS and a {sensor-locking system} to enable concurrent data retrieval from multiple satellite sensors across {I2C} serial communication buses.",
     ],
     skills: ["C", "I2C", "FreeRTOS"],
     logo: {
@@ -76,8 +76,8 @@ const experienceData = [
     titles: ["Teaching Assistant"],
     dates: "SEP — DEC 2023",
     accomplishments: [
-      "Collaborated with Professor Madeline Brandt to teach students in MATH 0540 (Linear Algebra with Theory).",
-      "Held regular TA office-hours and facilitated weekly recitations to help students with linear algebra concepts, mathematical proof-writing, and LaTeX typesetting.",
+      "Collaborated with Professor Madeline Brandt to teach students in {MATH 0540} (Linear Algebra with Theory).",
+      "Held regular TA {office-hours} and facilitated weekly {recitations} to help students with linear algebra concepts, mathematical proof-writing, and {LaTeX} typesetting.",
     ],
     skills: ["LaTeX", "Overleaf", "Visual Studio Code", "LaTeX Workshop"],
     logo: {
@@ -102,8 +102,8 @@ const experienceData = [
     titles: ["Game Developer"],
     dates: "JAN — MAY 2023",
     accomplishments: [
-      "Coordinated with an inter-university team of programmers and artists to conceptualize, produce, and launch Rift-Rush, a 2D-platformer game inspired by Portal and Celeste.",
-      "Developed core logic including player movement and collision physics using C# and Unity Game Engine.",
+      "Coordinated with an {inter-university} team of programmers and artists to conceptualize, produce, and launch {Rift-Rush}, a 2D-platformer game inspired by Portal and Celeste.",
+      "Developed core logic including player {movement} and {collision} physics using {C#} and {Unity Game Engine}.",
     ],
     skills: ["C#", "Unity"],
     logo: {
@@ -131,7 +131,7 @@ const projectData = [
     subtitle: "Computerized GOTO Equatorial Telescope Mount",
     dates: "AUG 2020 — PRESENT",
     description:
-      "A fully computerized telescope mount capable of imaging deep-sky celestial objects using long-exposure astrophotography. I’ve been using the mount to gather and process astronomical data when I’m home for holidays.",
+      "A fully computerized {telescope mount} capable of imaging {deep-sky celestial objects} (DSOs) using long-exposure {astrophotography}. I've been using the mount to gather and process astronomical data when I'm home for holidays.",
     skills: [
       "AutoCAD",
       "SolidWorks",
@@ -154,7 +154,7 @@ const projectData = [
     title: "Portfolio Website",
     dates: "DEC 2023 — JAN 2024",
     description:
-      "The personal portfolio website you're currently visiting — designed and developed by myself using Next.js.",
+      "The personal {portfolio website} you're currently visiting — designed and developed by myself using {Next.js}.",
     skills: [
       "Next.js",
       "React",
@@ -180,7 +180,7 @@ const projectData = [
     title: "Growth Stock Screener",
     dates: "MAY 2023 — JAN 2024",
     description:
-      "An automated stock screening system with 5 stages based on time-tested criteria for predicting growth stock super-performance.",
+      "An automated {stock screening system} with {5 stages} based on time-tested criteria for predicting growth stock super-performance.",
     skills: ["Python", "Selenium", "pandas", "aiohttp", "asyncio", "yfinance"],
     thumbnail: {
       src: "/placeholder.png",
@@ -194,7 +194,7 @@ const projectData = [
     title: "Plasmodial Slime Simulation",
     dates: "NOV — DEC 2023",
     description:
-      "An aesthetic computer-graphics based simulation of plasmodial slime growth using Unity compute shaders.",
+      "An aesthetic {computer-graphics} based simulation of {plasmodial slime} growth using Unity {compute shaders}.",
     skills: ["C#", "HLSL", "Unity"],
     thumbnail: {
       src: "/placeholder.png",

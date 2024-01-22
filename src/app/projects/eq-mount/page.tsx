@@ -65,17 +65,17 @@ export default function EQMount() {
             <div className="flex flex-col space-y-4">
               <p className="text-slate-400">
                 A central{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   STM32 controller
                 </span>{" "}
                 flashed with OnStep Firmware enables{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   plate-solving
                 </span>{" "}
                 and automatic framing of celestial objects.
               </p>
               <p className="text-slate-400">
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   Autoguiding
                 </span>{" "}
                 minimizes periodic error by interfacing with OnStep via an ST4
@@ -97,7 +97,7 @@ export default function EQMount() {
             <div className="flex flex-col space-y-4">
               <p className="text-slate-400">
                 Micro-stepping with a{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   360:1 worm gear ratio
                 </span>{" "}
                 combined with a 3:1 reduction ratio allows slow, accurate
@@ -122,14 +122,14 @@ export default function EQMount() {
             <div className="flex flex-col space-y-4">
               <p className="text-slate-400">
                 A rigid 0.5”{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   aluminum and alloy steel
                 </span>{" "}
                 design minimizes vibration, contributing to tracking accuracy.
               </p>
               <p className="text-slate-400">
                 Sturdy{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   twin-row angular contact bearings
                 </span>{" "}
                 are used to transfer rotation along the mount's RA and DEC axes.
@@ -150,7 +150,7 @@ export default function EQMount() {
           glowRadius={250}
           glowOpacity={0.05}
         >
-          <div className="flex flex-col items-center pt-6 pb-8 px-10 border border-transparent rounded-xl hover:bg-slate-400/[0.025] hover:border-slate-700/50  hover:shadow-xl hover:backdrop-blur-2xl transition-all ease-out duration-200 group">
+          <div className="flex flex-col items-center pt-6 pb-8 px-10 border border-transparent rounded-xl hover:bg-slate-400/[0.025] hover:border-slate-700/50  hover:shadow-xl hover:backdrop-blur-2xl transition-all ease-out duration-[250ms] group">
             <h2 className="text-slate-300 text-2xl font-semibold w-full">
               How it works
             </h2>
@@ -158,16 +158,16 @@ export default function EQMount() {
             <div className="text-slate-500 max-w-2xl flex flex-col space-y-6">
               <p>
                 Gathering enough light to observe{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   deep-sky objects
                 </span>{" "}
                 like nebulae and galaxies requires several{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   long-exposure photographs
                 </span>{" "}
                 carefully layered on top of one another. Unfortunately, an
                 observer on the ground faces a dilemma:{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   the Earth rotates
                 </span>
                 .
@@ -175,13 +175,13 @@ export default function EQMount() {
               <p>
                 In order to counteract the Earth's rotation, the telescope mount
                 itself has to rotate at a{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   sidereal rate
                 </span>
                 , effectively following the night sky. This is done by first
                 aligning the mount's right ascension axis with the celestial
                 pole using altitude and azimuth controls. From there, the{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   right ascension and declination
                 </span>{" "}
                 axes can be altered to point towards an object of interest.
@@ -190,7 +190,7 @@ export default function EQMount() {
               </p>
               <p>
                 This mount makes use of advanced capabilities like{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-200">
+                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   GOTO and autoguiding
                 </span>
                 . By connecting the mount's two main stepper motors to a central

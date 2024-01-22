@@ -128,7 +128,25 @@ function cardFront(
             <ul className="list-disc space-y-4 mt-3">
               {props.accomplishments.map((accomplishment, index) => (
                 <li key={index} className="text-sm text-slate-400">
-                  {accomplishment}
+                  {accomplishment
+                    // text enclosed in curly braces will be highlighted on hover
+                    .split(/({|})/)
+                    .map((substring, innerIndex, array) => {
+                      if (innerIndex > 0 && array[innerIndex - 1] === "{") {
+                        return (
+                          <span
+                            key={innerIndex}
+                            className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                          >
+                            {substring}
+                          </span>
+                        );
+                      } else if (substring === "{" || substring === "}") {
+                        return null;
+                      } else {
+                        return <span key={innerIndex}>{substring}</span>;
+                      }
+                    })}
                 </li>
               ))}
             </ul>
