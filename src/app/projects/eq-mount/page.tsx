@@ -1,7 +1,11 @@
+"use client";
+
 import Image from "next/image";
-import Button from "@/components/button";
 import DescriptionCard from "@/components/description-card";
 import GlowingCard from "@/components/sub-components/glowing-card";
+import NavButton from "@/components/nav-button";
+import ScrollButton from "@/components/scroll-button";
+import { navbarHeight } from "@/components/navbar";
 
 export default function EQMount() {
   return (
@@ -25,13 +29,15 @@ export default function EQMount() {
               <span className="text-sm text-slate-500">
                 Images taken with the mount.
               </span>
-              <Button href="/astrophotography">Astrophotography</Button>
+              <NavButton href="/astrophotography">Astrophotography</NavButton>
             </div>
             <div className="flex flex-col items-center space-y-2">
               <span className="text-sm text-slate-500">
                 How I built the mount.
               </span>
-              <Button href="/projects/eq-mount">Fabrication</Button>
+              <ScrollButton href="/projects/eq-mount#fabrication">
+                Fabrication
+              </ScrollButton>
             </div>
           </div>
         </div>
@@ -54,6 +60,11 @@ export default function EQMount() {
         </GlowingCard>
       </div>
       <div className="flex flex-col items-center">
+        <div
+          id="fabrication"
+          className="absolute"
+          style={{ transform: `translateY(-${navbarHeight - 1}px)` }}
+        />
         <h3 className="text-xl text-slate-400 mt-10">
           See how each aspect of the mount was fabricated, step-by-step.
         </h3>
@@ -82,12 +93,12 @@ export default function EQMount() {
                 port or directly through pulse guiding.
               </p>
             </div>
-            <Button
+            <NavButton
               href="https://onstep.groups.io/g/main/wiki/Home"
               className="mt-5"
             >
               OnStep Firmware
-            </Button>
+            </NavButton>
             <p className="text-xs text-slate-500 mt-1.5">by Howard Dutton</p>
           </DescriptionCard>
           <DescriptionCard
@@ -108,9 +119,9 @@ export default function EQMount() {
                 movement appears.
               </p>
             </div>
-            <Button href="/blog/gear-calculations" className="mt-5">
+            <NavButton href="/blog/gear-calculations" className="mt-5">
               Machining Worm Gears
-            </Button>
+            </NavButton>
             <p className="text-xs text-slate-500 leading-normal mt-1.5">
               Fabricating accurate worm gears using a CNC mill and lathe.
             </p>
@@ -135,9 +146,9 @@ export default function EQMount() {
                 are used to transfer rotation along the mount's RA and DEC axes.
               </p>
             </div>
-            <Button href="/blog/cutting-parts" className="mt-5">
+            <NavButton href="/blog/cutting-parts" className="mt-5">
               Structure Fabrication
-            </Button>
+            </NavButton>
             <p className="text-xs text-slate-500 leading-normal mt-1.5">
               Machining aluminum parts and steel shafts using a CNC router,
               mill, and lathe.
