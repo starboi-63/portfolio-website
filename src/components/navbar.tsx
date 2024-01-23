@@ -11,7 +11,7 @@ import LinkedIn from "./icons/linkedin";
 import GitHub from "./icons/github";
 import Instagram from "./icons/instagram";
 
-const navbarHeight = 60; // pixels
+export const navbarHeight = 60; // pixels
 
 const navItems = [
   {

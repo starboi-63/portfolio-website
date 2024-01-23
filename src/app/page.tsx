@@ -3,6 +3,7 @@
 import ExperienceCard from "@/components/experience-card";
 import ProjectCard from "@/components/project-card";
 import { motion } from "framer-motion";
+import { navbarHeight } from "@/components/navbar";
 
 const experienceData = [
   {
@@ -270,7 +271,8 @@ export default function Home() {
           >
             <div
               id="projects"
-              className="section-anchor absolute -translate-y-[55px]"
+              className="section-anchor absolute"
+              style={{ transform: `translateY(-${navbarHeight - 1}px)` }}
             />
           </motion.div>
           <div />
