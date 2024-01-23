@@ -70,7 +70,7 @@ const galleryLayout = require("justified-layout")(imageData, {
     left: 56,
   },
   boxSpacing: 16,
-  targetRowHeight: 370,
+  targetRowHeight: 380,
 });
 
 console.log(galleryLayout);
@@ -79,7 +79,7 @@ export default function Astrophotography() {
   return (
     <main>
       <div className="-z-20 fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-neutral-950 to-neutral-900" />
-      <div className="flex flex-col items-center mt-32">
+      <div className="flex flex-col items-center mt-24">
         <div className="relative w-screen">
           {imageData.map((data, index) => {
             const layout = galleryLayout.boxes[index];
