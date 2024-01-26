@@ -68,7 +68,7 @@ export default function EQMount() {
         <h3 className="text-xl text-slate-400 mt-10">
           See how each aspect of the mount was fabricated, step-by-step.
         </h3>
-        <div className="flex space-x-12 h-[407px] mt-10">
+        <div className="flex space-x-12 h-[384px] mt-10">
           <DescriptionCard
             className="min-w-64 max-w-80 h-full group"
             title="GOTO Capable"
@@ -102,7 +102,7 @@ export default function EQMount() {
             <p className="text-xs text-slate-500 mt-1.5">by Howard Dutton</p>
           </DescriptionCard>
           <DescriptionCard
-            className="min-w-64 max-w-80 h-[407px] group"
+            className="min-w-64 max-w-80 h-[384px] group"
             title="High Resolution"
           >
             <div className="flex flex-col space-y-4">
@@ -127,7 +127,7 @@ export default function EQMount() {
             </p>
           </DescriptionCard>
           <DescriptionCard
-            className="min-w-64 max-w-80 h-[407px] group"
+            className="min-w-64 max-w-80 h-[384px] group"
             title="Stable"
           >
             <div className="flex flex-col space-y-4">
