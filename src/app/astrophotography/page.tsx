@@ -1,6 +1,7 @@
 "use client";
 
-import { navbarHeight } from "@/components/navbar";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
 import Image from "next/image";
 
 interface imageDataType {
@@ -76,6 +77,8 @@ const galleryLayout = require("justified-layout")(imageData, {
 console.log(galleryLayout);
 
 export default function Astrophotography() {
+  const [selectedId, setSelectedId] = useState<string | null>(null);
+
   return (
     <main>
       <div className="-z-20 fixed inset-0 min-w-screen min-h-screen bg-gradient-to-tr from-neutral-950 to-neutral-900" />
@@ -85,9 +88,11 @@ export default function Astrophotography() {
             const layout = galleryLayout.boxes[index];
 
             return (
-              <div
+              <motion.div
                 key={index}
-                className="absolute"
+                layoutId={index.toString()}
+                onClick={() => setSelectedId(index.toString())}
+                className="absolute shadow-xl"
                 style={{
                   top: layout.top,
                   left: layout.left,
@@ -101,9 +106,38 @@ export default function Astrophotography() {
                   width={data.width}
                   height={data.height}
                 />
-              </div>
+              </motion.div>
             );
           })}
+
+          <AnimatePresence>
+            {selectedId && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="z-10 fixed inset-0 min-w-screen min-h-screen flex items-center justify-center backdrop-blur-md"
+              >
+                <motion.div
+                  layoutId={selectedId}
+                  onClick={() => setSelectedId(null)}
+                  className="z-20"
+                  style={{
+                    width: galleryLayout.boxes[Number(selectedId)].width * 1.4,
+                    height:
+                      galleryLayout.boxes[Number(selectedId)].height * 1.4,
+                  }}
+                >
+                  <Image
+                    src={imageData[Number(selectedId)].src}
+                    alt={imageData[Number(selectedId)].alt}
+                    width={imageData[Number(selectedId)].width}
+                    height={imageData[Number(selectedId)].height}
+                  />
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
         <div style={{ height: galleryLayout.containerHeight + 250 }} />
       </div>
