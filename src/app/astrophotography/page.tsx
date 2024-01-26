@@ -116,7 +116,7 @@ export default function Astrophotography() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                className="z-10 fixed inset-0 min-w-screen min-h-screen flex items-center justify-center backdrop-blur-md"
+                className="z-10 fixed inset-0 min-w-screen min-h-screen flex items-center justify-center backdrop-blur-md bg-neutral-900/75"
               >
                 <motion.div
                   layoutId={selectedId}
