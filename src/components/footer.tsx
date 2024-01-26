@@ -58,7 +58,7 @@ export default function Footer() {
   const { handleLinkClick } = useContext(NavigationContext);
 
   return (
-    <footer className="absolute bottom-0 w-screen flex bg-slate-400/5 border-t border-slate-700 shadow-xl backdrop-blur-2xl z-10">
+    <footer className="absolute bottom-0 w-screen flex bg-slate-400/5 border-t border-slate-700 shadow-xl backdrop-blur-2xl z-30">
       <div className="flex flex-col mt-3 mb-6">
         <div className="flex items-center ml-6">
           <Link

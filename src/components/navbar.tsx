@@ -127,7 +127,7 @@ export default function NavBar() {
   return (
     <nav
       style={{ height: navbarHeight }}
-      className={`fixed top-0 z-10 flex min-w-full items-center border-b transition-all ease-out duration-150 ${
+      className={`fixed top-0 z-30 flex min-w-full items-center border-b transition-all ease-out duration-150 ${
         isScrolled
           ? "bg-slate-400/5 border-slate-700 shadow-xl backdrop-blur-2xl"
           : "bg-transparent border-transparent"
