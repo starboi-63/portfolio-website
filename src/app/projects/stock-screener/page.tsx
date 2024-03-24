@@ -1,6 +1,8 @@
 import GitHub from "@/components/icons/github";
 import NavButton from "@/components/nav-button";
 import ScrollButton from "@/components/scroll-button";
+import ApplicationCard from "@/components/application-card";
+import Image from "next/image";
 
 export default function StockScreener() {
   return (
@@ -29,7 +31,16 @@ export default function StockScreener() {
             </NavButton>
           </div>
         </div>
+        <ApplicationCard title="Terminal">
+          <Image
+            src="/screener-terminal.png"
+            alt="Stock Screener Terminal Window"
+            width={600}
+            height={533.38}
+          />
+        </ApplicationCard>
       </div>
+      <div className="flex h-screen" />
     </main>
   );
 }
