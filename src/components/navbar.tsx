@@ -184,9 +184,18 @@ export default function NavBar() {
           ))}
         </div>
         <div className="flex justify-between space-x-10 px-10">
-          <GitHub className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
-          <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
-          <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
+          <GitHub
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
+          <Instagram
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
+          <LinkedIn
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
         </div>
       </div>
 

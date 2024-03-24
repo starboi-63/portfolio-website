@@ -90,9 +90,18 @@ export default function Footer() {
           </div>
         </div>
         <div className="flex items-center max-h-[22px] mt-20 ml-[36px] space-x-8">
-          <GitHub className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
-          <Instagram className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
-          <LinkedIn className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100" />
+          <GitHub
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
+          <Instagram
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
+          <LinkedIn
+            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
+            asLink={true}
+          />
           <div className="static w-px h-7 bg-slate-700" />
           <span className="text-sm text-slate-400">Thanks for visiting!</span>
         </div>
