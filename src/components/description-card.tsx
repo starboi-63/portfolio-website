@@ -6,6 +6,7 @@ import RotatingCard from "./sub-components/rotating-card";
 interface DescriptionCardProps {
   title: string;
   className?: string;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 }
 
@@ -22,6 +23,7 @@ export default function DescriptionCard(props: DescriptionCardProps) {
             props.className +
             " pt-5 pb-6 px-8 border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl"
           }
+          style={props.style}
         >
           <h1 className="text-xl font-semibold text-slate-200">
             {props.title}
