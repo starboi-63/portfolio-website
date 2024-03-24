@@ -115,8 +115,8 @@ export default function EQMount() {
                 tracking of the night sky.
               </p>
               <p className="text-slate-400">
-                The higher the gear ratio, the more continuous the mount's
-                movement appears.
+                {`The higher the gear ratio, the more continuous the mount\'s
+                movement appears.`}
               </p>
             </div>
             <NavButton href="/blog/gear-calculations" className="mt-5">
@@ -143,7 +143,7 @@ export default function EQMount() {
                 <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
                   twin-row angular contact bearings
                 </span>{" "}
-                are used to transfer rotation along the mount's RA and DEC axes.
+                {`are used to transfer rotation along the mount\'s RA and DEC axes.`}
               </p>
             </div>
             <NavButton href="/blog/cutting-parts" className="mt-5">
@@ -184,14 +184,14 @@ export default function EQMount() {
                 .
               </p>
               <p>
-                In order to counteract the Earth's rotation, the telescope mount
-                itself has to rotate at a{" "}
+                {`In order to counteract the Earth\'s rotation, the telescope mount
+                itself has to rotate at a`}{" "}
                 <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   sidereal rate
                 </span>
-                , effectively following the night sky. This is done by first
-                aligning the mount's right ascension axis with the celestial
-                pole using altitude and azimuth controls. From there, the{" "}
+                {`, effectively following the night sky. This is done by first
+                aligning the mount\'s right ascension axis with the celestial
+                pole using altitude and azimuth controls. From there, the`}{" "}
                 <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   right ascension and declination
                 </span>{" "}
@@ -204,11 +204,11 @@ export default function EQMount() {
                 <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
                   GOTO and autoguiding
                 </span>
-                . By connecting the mount's two main stepper motors to a central
+                {`. By connecting the mount\'s two main stepper motors to a central
                 computer containing a database of celestial objects, the mount
                 can automatically slew to a target. In addition, an auxiliary
                 telescope and camera will provide live visual input, allowing
-                the mount to automatically correct deviations in real time.
+                the mount to automatically correct deviations in real time.`}
               </p>
             </div>
           </div>

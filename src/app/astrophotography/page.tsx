@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 interface imageDataType {
@@ -62,22 +62,27 @@ const imageData: imageDataType[] = [
   },
 ];
 
-const galleryLayout = require("justified-layout")(imageData, {
-  containerWidth: window.innerWidth,
-  containerPadding: {
-    top: 0,
-    bottom: 0,
-    right: 56,
-    left: 56,
-  },
-  boxSpacing: 16,
-  targetRowHeight: 380,
-});
-
-console.log(galleryLayout);
-
 export default function Astrophotography() {
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [galleryLayout, setGalleryLayout] = useState<any>(null);
+
+  useEffect(() => {
+    const layout = require("justified-layout")(imageData, {
+      containerWidth: window.innerWidth,
+      containerPadding: {
+        top: 0,
+        bottom: 0,
+        right: 56,
+        left: 56,
+      },
+      boxSpacing: 16,
+      targetRowHeight: 380,
+    });
+
+    setGalleryLayout(layout);
+  }, []);
+
+  if (!galleryLayout) return null;
 
   return (
     <main>
