@@ -4,7 +4,10 @@ import "./globals.css";
 import Footer from "@/components/footer";
 import NavigationProvider from "@/components/contexts/navigation-context";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 interface RootLayoutProps {
   children: React.ReactNode;
