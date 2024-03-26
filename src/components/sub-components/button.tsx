@@ -15,7 +15,7 @@ export default function Button(props: ButtonProps) {
     >
       {props.children}
       <Image
-        src="/side-arrow.svg"
+        src="/icons/side-arrow.svg"
         width={6}
         height={6}
         alt="side arrow"
