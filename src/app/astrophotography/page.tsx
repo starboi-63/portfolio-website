@@ -13,49 +13,49 @@ interface imageDataType {
 
 const imageData: imageDataType[] = [
   {
-    src: "/pinwheel-galaxy.png",
+    src: "/astro/pinwheel-galaxy.png",
     alt: "M101 — Pinwheel Galaxy",
     width: 4646,
     height: 3045,
   },
   {
-    src: "/andromeda-galaxy.png",
+    src: "/astro/andromeda-galaxy.png",
     alt: "M31 — Andromeda Galaxy",
     width: 10016,
     height: 6745,
   },
   {
-    src: "/hercules-cluster.png",
+    src: "/astro/hercules-cluster.png",
     alt: "M13 — Hercules Cluster",
     width: 6040,
     height: 4138,
   },
   {
-    src: "/mount-1.png",
+    src: "/astro/mount-1.png",
     alt: "Computerized EQ-Mount Image 1",
     width: 3024,
     height: 4032,
   },
   {
-    src: "/mount-2.png",
+    src: "/astro/mount-2.png",
     alt: "Computerized EQ-Mount Image 2",
     width: 3024,
     height: 4032,
   },
   {
-    src: "/mount-3.png",
+    src: "/astro/mount-3.png",
     alt: "Computerized EQ-Mount Image 3",
     width: 4032,
     height: 3024,
   },
   {
-    src: "/mount-4.png",
+    src: "/astro/mount-4.png",
     alt: "Computerized EQ-Mount Image 4",
     width: 3024,
     height: 4032,
   },
   {
-    src: "/mount-5.png",
+    src: "/astro/mount-5.png",
     alt: "Computerized EQ-Mount Image 5",
     width: 4032,
     height: 3024,

@@ -50,7 +50,7 @@ export default function EQMount() {
         >
           <div className="relative flex justify-center items-center w-[600px] h-[600px] border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl">
             <Image
-              src="/mount-render.png"
+              src="/hero/mount-render.png"
               alt="EQ-Mount SolidWorks Visualize Render"
               width={500}
               height={500}

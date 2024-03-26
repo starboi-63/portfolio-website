@@ -25,7 +25,7 @@ const experienceData = [
       "Figma",
     ],
     logo: {
-      src: "/fsab-logo.svg",
+      src: "/logos/fsab-logo.svg",
       alt: "Full-Stack at Brown Logo",
       width: 42,
       height: 42,
@@ -60,7 +60,7 @@ const experienceData = [
     ],
     skills: ["C", "I2C", "FreeRTOS"],
     logo: {
-      src: "/bse-logo.svg",
+      src: "/logos/bse-logo.svg",
       alt: "Brown Space Engineering Logo",
       width: 42,
       height: 42,
@@ -82,7 +82,7 @@ const experienceData = [
     ],
     skills: ["LaTeX", "Overleaf", "Visual Studio Code", "LaTeX Workshop"],
     logo: {
-      src: "/brown-university-logo.svg",
+      src: "/logos/brown-university-logo.svg",
       alt: "Brown University Logo",
       width: 42,
       height: 42,
@@ -108,7 +108,7 @@ const experienceData = [
     ],
     skills: ["C#", "Unity"],
     logo: {
-      src: "/brgd-logo.svg",
+      src: "/logos/brgd-logo.svg",
       alt: "Brown-RISD Game Developers Logo",
       width: 66,
       height: 42,
@@ -144,7 +144,7 @@ const projectData = [
       "Photoshop",
     ],
     thumbnail: {
-      src: "/eq-mount-thumbnail.png",
+      src: "/thumbnails/eq-mount-thumbnail.png",
       alt: "Computerized EQ-Mount Thumbnail",
       width: 125,
       height: 42,
@@ -169,7 +169,7 @@ const projectData = [
       "Illustrator",
     ],
     thumbnail: {
-      src: "/portfolio-website-thumbnail.png",
+      src: "/thumbnails/portfolio-website-thumbnail.png",
       alt: "Portfolio Website Thumbnail",
       width: 125,
       height: 42,
@@ -184,7 +184,7 @@ const projectData = [
       "An automated {stock screening system} with {5 stages} based on time-tested criteria for predicting growth stock super-performance.",
     skills: ["Python", "Selenium", "pandas", "aiohttp", "asyncio", "yfinance"],
     thumbnail: {
-      src: "/placeholder.png",
+      src: "/thumbnails/placeholder.png",
       alt: "Growth Stock Screener Thumbnail",
       width: 125,
       height: 42,
@@ -198,7 +198,7 @@ const projectData = [
       "An aesthetic {computer-graphics} based simulation of {plasmodial slime} growth using Unity {compute shaders}.",
     skills: ["C#", "HLSL", "Unity"],
     thumbnail: {
-      src: "/placeholder.png",
+      src: "/thumbnails/placeholder.png",
       alt: "Plasmodial Slime Simulation Thumbnail",
       width: 125,
       height: 42,

@@ -78,7 +78,7 @@ export default function ProjectCard(props: ProjectCardProps) {
               <div className="flex space-x-4">
                 <h2 className="font-medium text-slate-200">{props.title}</h2>
                 <Image
-                  src="/side-arrow.svg"
+                  src="/icons/side-arrow.svg"
                   width={8}
                   height={8}
                   alt="side arrow"

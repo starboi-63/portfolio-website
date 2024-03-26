@@ -1,8 +1,9 @@
-import GitHub from "@/components/icons/github";
+import GitHub from "@/components/logos/github";
 import NavButton from "@/components/nav-button";
 import ScrollButton from "@/components/scroll-button";
 import ApplicationCard from "@/components/application-card";
 import Image from "next/image";
+import FeatureCard from "@/components/feature-card";
 
 export default function StockScreener() {
   return (
@@ -22,10 +23,10 @@ export default function StockScreener() {
           </h2>
           <div className="h-px w-full bg-slate-700 my-6" />
           <div className="flex justify-evenly">
-            <NavButton href="/astrophotography">
+            <ScrollButton href="/projects/stock-screener#docs">
               <span className="h-6 flex items-center">Get Started</span>
-            </NavButton>
-            <NavButton href="/projects/eq-mount#fabrication">
+            </ScrollButton>
+            <NavButton href="https://github.com/starboi-63/growth-stock-screener">
               <GitHub className="h-6 w-6 fill-slate-200 mr-2.5" />
               Source Code
             </NavButton>
@@ -33,14 +34,18 @@ export default function StockScreener() {
         </div>
         <ApplicationCard title="Terminal">
           <Image
-            src="/screener-terminal.png"
+            src="/hero/screener-terminal.png"
             alt="Stock Screener Terminal Window"
             width={600}
             height={533.38}
           />
         </ApplicationCard>
       </div>
-      <div className="flex h-screen" />
+      <div className="flex flex-col items-center">
+        <h3 className="text-3xl font-bold text-slate-200 mt-10">Features</h3>
+        <div className="grid grid-cols-3 grid-rows-2 gap-8 mt-8"></div>
+      </div>
+      <div className="min-h-screen" />
     </main>
   );
 }

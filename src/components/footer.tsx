@@ -3,10 +3,10 @@
 import { useContext } from "react";
 import { NavigationContext } from "./contexts/navigation-context";
 import Link from "next/link";
-import TMLogo from "./icons/tanish-makadia-logo";
-import GitHub from "./icons/github";
-import Instagram from "./icons/instagram";
-import LinkedIn from "./icons/linkedin";
+import TMLogo from "./logos/tanish-makadia-logo";
+import GitHub from "./logos/github";
+import Instagram from "./logos/instagram";
+import LinkedIn from "./logos/linkedin";
 import ToolLink from "./sub-components/footer-tool-link";
 import MainLink from "./sub-components/footer-main-link";
 import SubLink from "./sub-components/footer-sublink";

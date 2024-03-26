@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { throttle } from "lodash";
 import { NavigationContext } from "./contexts/navigation-context";
 import Image from "next/image";
-import TMLogo from "./icons/tanish-makadia-logo";
+import TMLogo from "./logos/tanish-makadia-logo";
 import Link from "next/link";
-import LinkedIn from "./icons/linkedin";
-import GitHub from "./icons/github";
-import Instagram from "./icons/instagram";
+import LinkedIn from "./logos/linkedin";
+import GitHub from "./logos/github";
+import Instagram from "./logos/instagram";
 
 export const navbarHeight = 60; // pixels
 
@@ -175,7 +175,7 @@ export default function NavBar() {
               </span>
               <Image
                 className="group-hover:translate-y-0.5 transition-all ease-out duration-100"
-                src="/down-arrow.svg"
+                src="/icons/down-arrow.svg"
                 width={8}
                 height={8}
                 alt="down arrow"

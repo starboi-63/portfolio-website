@@ -113,7 +113,7 @@ function cardFront(
                 {props.organization}
               </h2>
               <Image
-                src="/side-arrow.svg"
+                src="/icons/side-arrow.svg"
                 width={8}
                 height={8}
                 alt="side arrow"
