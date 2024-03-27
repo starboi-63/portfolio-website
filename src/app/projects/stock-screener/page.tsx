@@ -70,6 +70,60 @@ export default function StockScreener() {
               using methodology from William O'Neil Securities.
             </span>
           </FeatureCard>
+          <FeatureCard
+            icon={{
+              src: "/icons/trend-icon.svg",
+              alt: "Stage 2 Trend Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">Stage-2 Trend</span> derived from
+              strategies of U.S. investing champions Mark Minervini and Oliver
+              Kell.
+            </span>
+          </FeatureCard>
+          <FeatureCard
+            icon={{
+              src: "/icons/revenue-icon.svg",
+              alt: "Revenue Growth Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">Revenue growth</span> sourced
+              directly from the SEC's EDGAR XBRL data APIs.
+            </span>
+          </FeatureCard>
+          <FeatureCard
+            icon={{
+              src: "/icons/settings-icon.svg",
+              alt: "User Settings Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">Customizable</span> screen
+              settings for fine-tuning and experimenting.
+            </span>
+          </FeatureCard>
+          <FeatureCard
+            icon={{
+              src: "/icons/outfile-icon.svg",
+              alt: "Output File Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">Easy-to-access</span> .csv
+              outfiles storing screen results. Parsable .json outfiles for
+              evaluation.
+            </span>
+          </FeatureCard>
         </div>
       </div>
       <div className="min-h-screen" />
