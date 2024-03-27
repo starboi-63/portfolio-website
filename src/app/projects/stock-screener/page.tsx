@@ -43,7 +43,34 @@ export default function StockScreener() {
       </div>
       <div className="flex flex-col items-center">
         <h3 className="text-3xl font-bold text-slate-200 mt-10">Features</h3>
-        <div className="grid grid-cols-3 grid-rows-2 gap-8 mt-8"></div>
+        <div className="grid grid-cols-3 grid-rows-2 gap-8 mt-8">
+          <FeatureCard
+            icon={{
+              src: "/icons/iterations-icon.svg",
+              alt: "Iterations Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">Five</span> distinct screen
+              iterations based on criteria for predicting super performance.
+            </span>
+          </FeatureCard>
+          <FeatureCard
+            icon={{
+              src: "/icons/ratings-icon.svg",
+              alt: "RS Ratings Icon",
+              width: 36,
+              height: 36,
+            }}
+          >
+            <span className="text-slate-400">
+              <span className="text-slate-200">RS Ratings</span> calculated
+              using methodology from William O'Neil Securities.
+            </span>
+          </FeatureCard>
+        </div>
       </div>
       <div className="min-h-screen" />
     </main>

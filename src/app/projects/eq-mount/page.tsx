@@ -6,6 +6,7 @@ import GlowingCard from "@/components/sub-components/glowing-card";
 import NavButton from "@/components/nav-button";
 import ScrollButton from "@/components/scroll-button";
 import { navbarHeight } from "@/components/navbar";
+import AccentedText from "@/components/sub-components/accented-text";
 
 export default function EQMount() {
   const cardHeightStyle = { height: "400px" };
@@ -77,24 +78,17 @@ export default function EQMount() {
             title="GOTO Capable"
           >
             <div className="flex flex-col space-y-4">
-              <p className="text-slate-400">
-                A central{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  STM32 controller
-                </span>{" "}
-                flashed with OnStep Firmware enables{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  plate-solving
-                </span>{" "}
-                and automatic framing of celestial objects.
-              </p>
-              <p className="text-slate-400">
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  Autoguiding
-                </span>{" "}
-                minimizes periodic error by interfacing with OnStep via an ST4
-                port or directly through pulse guiding.
-              </p>
+              <AccentedText
+                className="text-slate-400"
+                accentClassName="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                text="A central {STM32 controller} flashed with OnStep Firmware enables {plate-solving} and automatic framing of celestial objects."
+              />
+              <AccentedText
+                className="text-slate-400"
+                accentClassName="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                text="{Autoguiding} minimizes periodic error by interfacing with OnStep via an ST4
+                port or directly through pulse guiding."
+              />
             </div>
             <NavButton
               href="https://onstep.groups.io/g/main/wiki/Home"
@@ -110,18 +104,15 @@ export default function EQMount() {
             title="High Resolution"
           >
             <div className="flex flex-col space-y-4">
-              <p className="text-slate-400">
-                Micro-stepping with a{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  360:1 worm gear ratio
-                </span>{" "}
-                combined with a 3:1 reduction ratio allows slow, accurate
-                tracking of the night sky.
-              </p>
-              <p className="text-slate-400">
+              <AccentedText
+                className="text-slate-400"
+                accentClassName="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                text="Micro-stepping with a {360:1 worm gear ratio} combined with a 3:1 reduction ratio allows slow, accurate tracking of the night sky."
+              />
+              <span className="text-slate-400">
                 {`The higher the gear ratio, the more continuous the mount\'s
                 movement appears.`}
-              </p>
+              </span>
             </div>
             <NavButton href="/blog/gear-calculations" className="mt-5">
               Machining Worm Gears
@@ -136,20 +127,16 @@ export default function EQMount() {
             title="Stable"
           >
             <div className="flex flex-col space-y-4">
-              <p className="text-slate-400">
-                A rigid 0.5”{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  aluminum and alloy steel
-                </span>{" "}
-                design minimizes vibration, contributing to tracking accuracy.
-              </p>
-              <p className="text-slate-400">
-                Sturdy{" "}
-                <span className="group-hover:text-slate-300 transition-all ease-out duration-[250ms]">
-                  twin-row angular contact bearings
-                </span>{" "}
-                {`are used to transfer rotation along the mount\'s RA and DEC axes.`}
-              </p>
+              <AccentedText
+                className="text-slate-400"
+                accentClassName="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                text="A rigid 0.5” {aluminum and alloy steel} design minimizes vibration, contributing to tracking accuracy."
+              />
+              <AccentedText
+                className="text-slate-400"
+                accentClassName="group-hover:text-slate-300 transition-all ease-out duration-[250ms]"
+                text="Sturdy {twin-row angular contact bearings} are used to transfer rotation along the mount's RA and DEC axes."
+              />
             </div>
             <NavButton href="/blog/cutting-parts" className="mt-5">
               Structure Fabrication
@@ -172,49 +159,18 @@ export default function EQMount() {
             </h2>
             <div className="w-full h-px bg-slate-700/50 mt-3 mb-4" />
             <div className="text-slate-500 max-w-2xl flex flex-col space-y-6">
-              <p>
-                Gathering enough light to observe{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  deep-sky objects
-                </span>{" "}
-                like nebulae and galaxies requires several{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  long-exposure photographs
-                </span>{" "}
-                carefully layered on top of one another. Unfortunately, an
-                observer on the ground faces a dilemma:{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  the Earth rotates
-                </span>
-                .
-              </p>
-              <p>
-                {`In order to counteract the Earth\'s rotation, the telescope mount
-                itself has to rotate at a`}{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  sidereal rate
-                </span>
-                {`, effectively following the night sky. This is done by first
-                aligning the mount\'s right ascension axis with the celestial
-                pole using altitude and azimuth controls. From there, the`}{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  right ascension and declination
-                </span>{" "}
-                axes can be altered to point towards an object of interest.
-                Declination is then locked, and right ascension slowly rotates,
-                tracking the object as it makes its way across the night sky.
-              </p>
-              <p>
-                This mount makes use of advanced capabilities like{" "}
-                <span className="group-hover:text-slate-400 transition-all ease-out duration-[250ms]">
-                  GOTO and autoguiding
-                </span>
-                {`. By connecting the mount\'s two main stepper motors to a central
-                computer containing a database of celestial objects, the mount
-                can automatically slew to a target. In addition, an auxiliary
-                telescope and camera will provide live visual input, allowing
-                the mount to automatically correct deviations in real time.`}
-              </p>
+              <AccentedText
+                accentClassName="group-hover:text-slate-400 transition-all ease-out duration-[250ms]"
+                text="Gathering enough light to observe {deep-sky objects} like nebulae and galaxies requires several {long-exposure photographs} carefully layered on top of one another. Unfortunately, an observer on the ground faces a dilemma: {the Earth rotates}."
+              />
+              <AccentedText
+                accentClassName="group-hover:text-slate-400 transition-all ease-out duration-[250ms]"
+                text="In order to counteract the Earth's rotation, the telescope mount itself has to rotate at a {sidereal rate}, effectively following the night sky. This is done by first aligning the mount's right ascension axis with the celestial pole using altitude and azimuth controls. From there, the {right ascension and declination} axes can be altered to point towards an object of interest. Declination is then locked, and right ascension slowly rotates, tracking the object as it makes its way across the night sky."
+              />
+              <AccentedText
+                accentClassName="group-hover:text-slate-400 transition-all ease-out duration-[250ms]"
+                text="This mount makes use of advanced capabilities like {GOTO and autoguiding}. By connecting the mount's two main stepper motors to a central computer containing a database of celestial objects, the mount can automatically slew to a target. In addition, an auxiliary telescope and camera will provide live visual input, allowing the mount to automatically correct deviations in real time."
+              />
             </div>
           </div>
         </GlowingCard>

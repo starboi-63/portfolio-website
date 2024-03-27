@@ -9,12 +9,12 @@ interface IconType {
 
 interface FeatureCardProps {
   icon: IconType;
-  description: string;
+  children?: React.ReactNode;
 }
 
 export default function FeatureCard(props: FeatureCardProps) {
   return (
-    <div className="flex items-center space-x-4">
+    <div className="flex items-center w-80 p-6 space-x-6 border bg-slate-400/5 border-slate-700 rounded-xl shadow-xl backdrop-blur-2xl">
       <Image
         src={props.icon.src}
         alt={props.icon.alt}
@@ -22,7 +22,7 @@ export default function FeatureCard(props: FeatureCardProps) {
         height={props.icon.height}
       />
       <div className="w-[1px] h-12 bg-slate-700" />
-      <p className="text-slate-200">{props.description}</p>
+      {props.children}
     </div>
   );
 }
