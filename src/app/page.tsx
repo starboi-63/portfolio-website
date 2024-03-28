@@ -1,7 +1,7 @@
 "use client";
 
-import ExperienceCard from "@/components/experience-card";
-import ProjectCard from "@/components/project-card";
+import ExperienceCard from "@/components/cards/experience-card";
+import ProjectCard from "@/components/cards/project-card";
 import { motion } from "framer-motion";
 import { navbarHeight } from "@/components/navbar";
 
@@ -55,10 +55,9 @@ const experienceData = [
     dates: "SEP 2022 — PRESENT",
     accomplishments: [
       "Overseeing a team of {10+ members} in the development of the {operating system} for Perovskite Visuals and Degradation eXperiment (PVDX), a {3U-CubeSat} approved by {NASA}'s CubeSat Launch Initiative (CSLI) to test the resilience of next-gen {perovskite solar cells} (PSCs) in harsh orbital environments.",
-      "Collaborating with the {executive board} in weekly meetings to align project goals and milestones, ensuring successful integration with the launch vehicle and compliance with NASA's CubeSat standard.",
-      "Designed a {watchdog system} to monitor the health of tasks within the satellite's OS and a {sensor-locking system} to enable concurrent data retrieval from multiple satellite sensors across {I2C} serial communication buses.",
+      "Designed a {watchdog system} to monitor the health of tasks within the satellite's OS and a {sensor-locking system} to enable concurrent data retrieval from multiple satellite sensors across {I2C} and {SPI} serial communication buses.",
     ],
-    skills: ["C", "I2C", "FreeRTOS"],
+    skills: ["C", "I2C", "SPI", "FreeRTOS", "Atmel Software Framework"],
     logo: {
       src: "/logos/bse-logo.svg",
       alt: "Brown Space Engineering Logo",
@@ -66,10 +65,13 @@ const experienceData = [
       height: 42,
     },
     links: [
+      {
+        text: "Brown News",
+        url: "https://www.brown.edu/news/2021-04-21/cubesat",
+      },
       { text: "BSE Website", url: "https://www.brownspace.io" },
       { text: "GitHub", url: "https://github.com/BrownSpaceEngineering" },
       { text: "LinkedIn", url: "https://www.linkedin.com/company/brownspace" },
-      { text: "Facebook", url: "https://www.facebook.com/browncubesat/" },
     ],
   },
   {
@@ -184,7 +186,7 @@ const projectData = [
       "An automated {stock screening system} with {5 stages} based on time-tested criteria for predicting growth stock super-performance.",
     skills: ["Python", "Selenium", "pandas", "aiohttp", "asyncio", "yfinance"],
     thumbnail: {
-      src: "/thumbnails/placeholder.png",
+      src: "/thumbnails/screener-thumbnail.png",
       alt: "Growth Stock Screener Thumbnail",
       width: 125,
       height: 42,

@@ -5,11 +5,12 @@ import { motion } from "framer-motion";
 import { throttle } from "lodash";
 import { NavigationContext } from "./contexts/navigation-context";
 import Image from "next/image";
-import TMLogo from "./logos/tanish-makadia-logo";
+import TMIcon from "./icons/tanish-makadia-icon";
 import Link from "next/link";
-import LinkedIn from "./logos/linkedin";
-import GitHub from "./logos/github";
-import Instagram from "./logos/instagram";
+import LinkedInButton from "./buttons/linkedin-button";
+import GitHubButton from "./buttons/github-button";
+import InstagramButton from "./buttons/instagram-button";
+import XButton from "./buttons/x-button";
 
 export const navbarHeight = 60; // pixels
 
@@ -139,14 +140,14 @@ export default function NavBar() {
         className="flex flex-grow max-w-36 justify-center items-center group"
         onClick={async (e) => handleLinkClick(e, "/#experience")}
       >
-        <TMLogo className="ml-1.5 fill-slate-200" />
+        <TMIcon className="ml-1.5 fill-slate-200" />
         <span className="font-bold text-slate-200 mr-3">
           TM
           <div className="-translate-y-[1px] bg-slate-400 h-px w-0 group-hover:w-full transition-all ease-out duration-100" />
         </span>
       </Link>
       <div className="w-px h-6 border-r border-slate-700" />
-      <div className="flex justify-between flex-grow">
+      <div className="flex items-center justify-between flex-grow">
         <div className="hidden lg:flex justify-between pl-5 flex-shrink-0">
           {navItems.map((item, index) => (
             <Link
@@ -183,19 +184,11 @@ export default function NavBar() {
             </Link>
           ))}
         </div>
-        <div className="flex justify-between space-x-10 px-10">
-          <GitHub
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
-          <Instagram
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
-          <LinkedIn
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
+        <div className="flex items-center justify-between space-x-2 px-10">
+          <GitHubButton />
+          <LinkedInButton />
+          <InstagramButton />
+          <XButton />
         </div>
       </div>
 

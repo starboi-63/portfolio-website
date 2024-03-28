@@ -1,15 +1,13 @@
 "use client";
 
-import { useContext } from "react";
-import { NavigationContext } from "./contexts/navigation-context";
-import Link from "next/link";
-import TMLogo from "./logos/tanish-makadia-logo";
-import GitHub from "./logos/github";
-import Instagram from "./logos/instagram";
-import LinkedIn from "./logos/linkedin";
+import TMButton from "./buttons/tanish-makadia-button";
+import GitHubButton from "./buttons/github-button";
+import InstagramButton from "./buttons/instagram-button";
+import LinkedInButton from "./buttons/linkedin-button";
 import ToolLink from "./sub-components/footer-tool-link";
 import MainLink from "./sub-components/footer-main-link";
 import SubLink from "./sub-components/footer-sublink";
+import XButton from "./buttons/x-button";
 
 const projectLinks = [
   {
@@ -55,18 +53,11 @@ const blogLinks = [
 ];
 
 export default function Footer() {
-  const { handleLinkClick } = useContext(NavigationContext);
-
   return (
     <footer className="absolute bottom-0 w-screen flex bg-slate-400/5 border-t border-slate-700 shadow-xl backdrop-blur-2xl z-30">
       <div className="flex flex-col mt-3 mb-6">
         <div className="flex items-center ml-6">
-          <Link
-            href="/"
-            onClick={async (e) => handleLinkClick(e, "/#experience")}
-          >
-            <TMLogo className="fill-slate-400 hover:fill-slate-200 mr-1" />
-          </Link>
+          <TMButton className="mr-1" />
           <div className="relative">
             <span className="text-sm text-slate-400">
               © {new Date().getFullYear()} Tanish Makadia. All Rights Reserved.
@@ -89,20 +80,14 @@ export default function Footer() {
             </span>
           </div>
         </div>
-        <div className="flex items-center max-h-[22px] mt-20 ml-[36px] space-x-8">
-          <GitHub
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
-          <Instagram
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
-          <LinkedIn
-            className="fill-slate-400 hover:fill-slate-200 transition-all ease-out duration-100"
-            asLink={true}
-          />
-          <div className="static w-px h-7 bg-slate-700" />
+        <div className="flex items-center max-h-[22px] mt-20 ml-[36px]">
+          <div className="flex items-center space-x-0">
+            <GitHubButton />
+            <LinkedInButton />
+            <InstagramButton />
+            <XButton />
+          </div>
+          <div className="static w-px h-7 bg-slate-700 ml-4 mr-6" />
           <span className="text-sm text-slate-400">Thanks for visiting!</span>
         </div>
       </div>

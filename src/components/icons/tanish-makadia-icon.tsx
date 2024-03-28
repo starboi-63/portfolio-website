@@ -1,8 +1,8 @@
-interface TMLogoProps {
+interface TMIconProps {
   className?: string;
 }
 
-export default function TMLogo(props: TMLogoProps) {
+export default function TMIcon(props: TMIconProps) {
   return (
     <svg
       className={props.className}

@@ -1,5 +1,5 @@
-import Circle from "./sub-components/circle";
-import GlowingCard from "./sub-components/glowing-card";
+import Circle from "../sub-components/circle";
+import GlowingCard from "../sub-components/glowing-card";
 
 interface ApplicationCardProps {
   title: string;

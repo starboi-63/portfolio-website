@@ -1,9 +1,9 @@
-import GitHub from "@/components/logos/github";
-import NavButton from "@/components/nav-button";
-import ScrollButton from "@/components/scroll-button";
-import ApplicationCard from "@/components/application-card";
+import GitHubIcon from "@/components/icons/github-icon";
+import NavButton from "@/components/buttons/nav-button";
+import ScrollButton from "@/components/buttons/scroll-button";
+import ApplicationCard from "@/components/cards/application-card";
 import Image from "next/image";
-import FeatureCard from "@/components/feature-card";
+import FeatureCard from "@/components/cards/feature-card";
 
 export default function StockScreener() {
   return (
@@ -27,7 +27,7 @@ export default function StockScreener() {
               <span className="h-6 flex items-center">Get Started</span>
             </ScrollButton>
             <NavButton href="https://github.com/starboi-63/growth-stock-screener">
-              <GitHub className="h-6 w-6 fill-slate-200 mr-2.5" />
+              <GitHubIcon className="h-6 w-6 fill-slate-200 mr-2.5" />
               Source Code
             </NavButton>
           </div>

@@ -39,6 +39,9 @@ const skillToURLMap: SkillToUrlMap = {
   Vercel: "https://vercel.com/",
   Illustrator: "https://www.adobe.com/products/illustrator.html",
   HLSL: "https://docs.microsoft.com/en-us/windows/win32/direct3dhlsl/dx-graphics-hlsl",
+  SPI: "https://en.wikipedia.org/wiki/Serial_Peripheral_Interface",
+  "Atmel Software Framework":
+    "https://www.microchip.com/en-us/tools-resources/develop/libraries/advanced-software-framework",
 };
 
 export default skillToURLMap;

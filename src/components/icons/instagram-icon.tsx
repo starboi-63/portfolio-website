@@ -1,10 +1,9 @@
-interface InstagramProps {
+interface InstagramIconProps {
   className?: string;
-  asLink?: boolean;
 }
 
-export default function Instagram(props: InstagramProps) {
-  const svgContent = (
+export default function InstagramIcon(props: InstagramIconProps) {
+  return (
     <svg
       className={props.className}
       width="22"
@@ -31,18 +30,4 @@ export default function Instagram(props: InstagramProps) {
       </defs>
     </svg>
   );
-
-  if (props.asLink) {
-    return (
-      <a
-        href="https://www.instagram.com/tanishmakadia.astro/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {svgContent}
-      </a>
-    );
-  }
-
-  return svgContent;
 }

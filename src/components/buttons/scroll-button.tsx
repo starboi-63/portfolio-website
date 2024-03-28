@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Button from "./sub-components/button";
+import Button from "../sub-components/button";
 
 interface ScrollButtonProps {
   href: string;

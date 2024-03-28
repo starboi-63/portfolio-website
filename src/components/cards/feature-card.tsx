@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import RotatingCard from "./sub-components/rotating-card";
-import GlowingCard from "./sub-components/glowing-card";
+import RotatingCard from "../sub-components/rotating-card";
+import GlowingCard from "../sub-components/glowing-card";
 
 interface IconType {
   src: string;

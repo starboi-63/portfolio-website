@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
-import RotatingCard from "./sub-components/rotating-card";
-import FlippingCard from "./sub-components/flipping-card";
+import RotatingCard from "../sub-components/rotating-card";
+import FlippingCard from "../sub-components/flipping-card";
 import LinkIcon from "@/components/icons/link-icon";
 import skillToURLMap from "@/lib/skill-to-url-map";
-import GlowingCard from "./sub-components/glowing-card";
-import AccentedText from "./sub-components/accented-text";
+import GlowingCard from "../sub-components/glowing-card";
+import AccentedText from "../sub-components/accented-text";
 
 interface LinkData {
   text: string;

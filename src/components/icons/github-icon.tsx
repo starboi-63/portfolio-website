@@ -1,10 +1,9 @@
-interface GitHubProps {
+interface GitHubIconProps {
   className?: string;
-  asLink?: boolean;
 }
 
-export default function GitHub(props: GitHubProps) {
-  const svgContent = (
+export default function GitHubIcon(props: GitHubIconProps) {
+  return (
     <svg
       className={props.className}
       width="22"
@@ -27,18 +26,4 @@ export default function GitHub(props: GitHubProps) {
       </defs>
     </svg>
   );
-
-  if (props.asLink) {
-    return (
-      <a
-        href="https://github.com/starboi-63"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {svgContent}
-      </a>
-    );
-  }
-
-  return svgContent;
 }

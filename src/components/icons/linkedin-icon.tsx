@@ -1,10 +1,9 @@
-interface LinkedInProps {
+interface LinkedInIconProps {
   className?: string;
-  asLink?: boolean;
 }
 
-export default function LinkedIn(props: LinkedInProps) {
-  const svgContent = (
+export default function LinkedInIcon(props: LinkedInIconProps) {
+  return (
     <svg
       className={props.className}
       width="22"
@@ -25,18 +24,4 @@ export default function LinkedIn(props: LinkedInProps) {
       </defs>
     </svg>
   );
-
-  if (props.asLink) {
-    return (
-      <a
-        href="https://www.linkedin.com/in/tanish-makadia/"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {svgContent}
-      </a>
-    );
-  }
-
-  return svgContent;
 }

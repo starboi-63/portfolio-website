@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { NavigationContext } from "./contexts/navigation-context";
-import RotatingCard from "./sub-components/rotating-card";
+import { NavigationContext } from "../contexts/navigation-context";
+import RotatingCard from "../sub-components/rotating-card";
 import Image from "next/image";
 import skillToURLMap from "@/lib/skill-to-url-map";
 import Link from "next/link";
-import GlowingCard from "./sub-components/glowing-card";
-import AccentedText from "./sub-components/accented-text";
+import GlowingCard from "../sub-components/glowing-card";
+import AccentedText from "../sub-components/accented-text";
 
 interface ThumbnailData {
   src: string;

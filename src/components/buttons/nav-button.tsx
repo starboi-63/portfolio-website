@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useContext } from "react";
 import { NavigationContext } from "@/components/contexts/navigation-context";
-import Button from "./sub-components/button";
+import Button from "../sub-components/button";
 
 interface ButtonProps {
   href: string;

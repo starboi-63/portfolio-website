@@ -1,7 +1,7 @@
 "use client";
 
-import GlowingCard from "./sub-components/glowing-card";
-import RotatingCard from "./sub-components/rotating-card";
+import GlowingCard from "../sub-components/glowing-card";
+import RotatingCard from "../sub-components/rotating-card";
 
 interface DescriptionCardProps {
   title: string;

@@ -1,10 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import DescriptionCard from "@/components/description-card";
+import DescriptionCard from "@/components/cards/description-card";
 import GlowingCard from "@/components/sub-components/glowing-card";
-import NavButton from "@/components/nav-button";
-import ScrollButton from "@/components/scroll-button";
+import NavButton from "@/components/buttons/nav-button";
+import ScrollButton from "@/components/buttons/scroll-button";
 import { navbarHeight } from "@/components/navbar";
 import AccentedText from "@/components/sub-components/accented-text";
 
