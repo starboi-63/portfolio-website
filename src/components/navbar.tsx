@@ -63,6 +63,9 @@ export default function NavBar() {
   // track scroll position to change navbar style and update active link
   const [isScrolled, setIsScrolled] = useState(false);
 
+  // use grayscale filter on astrophotography page to keep colors consistent
+  const useGrayscale = pathname === "/astrophotography";
+
   useEffect(() => {
     const handleScroll = throttle(() => {
       const scrolled = window.scrollY > 0;
@@ -132,7 +135,7 @@ export default function NavBar() {
         isScrolled
           ? "bg-slate-400/5 border-slate-700 shadow-xl backdrop-blur-2xl"
           : "bg-transparent border-transparent"
-      }`}
+      } ${useGrayscale ? "grayscale" : "grayscale-0"}`}
       ref={navbarRef}
     >
       <Link

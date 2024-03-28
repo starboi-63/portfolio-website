@@ -8,6 +8,8 @@ import ToolLink from "./sub-components/footer-tool-link";
 import MainLink from "./sub-components/footer-main-link";
 import SubLink from "./sub-components/footer-sublink";
 import XButton from "./buttons/x-button";
+import { useContext } from "react";
+import { NavigationContext } from "./contexts/navigation-context";
 
 const projectLinks = [
   {
@@ -53,8 +55,17 @@ const blogLinks = [
 ];
 
 export default function Footer() {
+  const { pathname } = useContext(NavigationContext);
+
+  // use grayscale filter on astrophotography page to keep colors consistent
+  const useGrayscale = pathname === "/astrophotography";
+
   return (
-    <footer className="absolute bottom-0 w-screen flex bg-slate-400/5 border-t border-slate-700 shadow-xl backdrop-blur-2xl z-30">
+    <footer
+      className={`absolute bottom-0 w-screen flex bg-slate-400/5 border-t border-slate-700 shadow-xl backdrop-blur-2xl z-30 ${
+        useGrayscale ? "grayscale" : "grayscale-0"
+      }`}
+    >
       <div className="flex flex-col mt-3 mb-6">
         <div className="flex items-center ml-6">
           <TMButton className="mr-1" />
