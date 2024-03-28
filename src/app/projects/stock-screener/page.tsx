@@ -4,6 +4,7 @@ import ScrollButton from "@/components/buttons/scroll-button";
 import ApplicationCard from "@/components/cards/application-card";
 import Image from "next/image";
 import FeatureCard from "@/components/cards/feature-card";
+import Link from "next/link";
 
 export default function StockScreener() {
   return (
@@ -67,7 +68,16 @@ export default function StockScreener() {
           >
             <span className="text-slate-400">
               <span className="text-slate-200">RS Ratings</span> calculated
-              using methodology from William O'Neil Securities.
+              using methodology from{" "}
+              <Link
+                className="underline"
+                href="https://www.williamoneil.com/proprietary-ratings-and-rankings/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {`William O\'Neil Securities`}
+              </Link>
+              .
             </span>
           </FeatureCard>
           <FeatureCard
@@ -93,8 +103,17 @@ export default function StockScreener() {
             }}
           >
             <span className="text-slate-400">
-              <span className="text-slate-200">Revenue growth</span> sourced
-              directly from the SEC's EDGAR XBRL data APIs.
+              <span className="text-slate-200">Revenue growth</span>{" "}
+              {`sourced directly from the SEC\'s EDGAR`}{" "}
+              <Link
+                className="underline"
+                href="https://www.sec.gov/edgar/sec-api-documentation"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                XBRL data APIs
+              </Link>
+              .
             </span>
           </FeatureCard>
           <FeatureCard
